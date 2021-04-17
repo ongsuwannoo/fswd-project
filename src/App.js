@@ -2,16 +2,18 @@ import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Register from "./Pages/Register/register";
+import Register from "./Pages/Register/Register";
 import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login/login";
+import Login from "./Pages/Login/Login";
 import OrderDetail from "./Pages/OrderDetail/orderId"
+import Nav from "./components/Nav/Nav"
 
 function App() {
   return (
     <Router>
       <div>
-        <Switch>
+        <Nav />
+      <Switch>
           <Route exact path="/">
             <Home />
           </Route>

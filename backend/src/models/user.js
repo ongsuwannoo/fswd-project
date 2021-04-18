@@ -5,10 +5,20 @@ import { composeWithMongoose } from 'graphql-compose-mongoose'
 const { Schema } = mongoose
 
 const UserSchema = new Schema({
-  username: {
-    type: String, required: true, index: true, unique: true,
+  firstname: {
+    type: String,
+    required: true
   },
-  name: { type: String, required: true },
+  lastname: {
+    type: String,
+    required: true
+  },
+  username: {
+    type: String,
+    required: true,
+    index: true,
+    unique: true,
+  },
   password: { type: String, require: true, bcrypt: true },
 })
 UserSchema.plugin(bcrypt)

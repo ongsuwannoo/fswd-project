@@ -2,7 +2,7 @@
 function ProductCard(numSpan){
     return(
         <div className={numSpan.span}>
-            <img src="https://via.placeholder.com/398x500" class="" alt="productDetail"></img>
+            <img src="https://via.placeholder.com/398x500" className="" alt="productDetail"></img>
             <h3 className="px-2 text-3xl">Kurs Jacket</h3>
             <h4 className="px-2 text-opacity-70">รถขาไถ แลนด์โรเวอร์ สีน้ำเงิน</h4>
             <h5 className="px-2 text-2xl">฿550</h5>

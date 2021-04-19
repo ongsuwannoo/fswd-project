@@ -6,7 +6,8 @@ mutation ($username: String! $password: String!) {
     token
     user {
       _id
-      name
+      firstname
+      lastname
     }
   }
 }

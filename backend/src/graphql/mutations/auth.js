@@ -4,13 +4,13 @@ import jsonwebtoken from 'jsonwebtoken'
 
 import { UserModel, UserTC } from '../../models'
 
-const LoginInput = schemaComposer.createInputTC({
-  name: 'LoginInput',
-  fields: {
-    username: 'String!',
-    password: 'String!',
-  },
-})
+// const LoginInput = schemaComposer.createInputTC({
+//   name: 'LoginInput',
+//   fields: {
+//     username: 'String!',
+//     password: 'String!',
+//   },
+// })
 const LoginPayload = schemaComposer.createObjectTC({
   name: 'LoginPayload',
   fields: {
@@ -20,16 +20,16 @@ const LoginPayload = schemaComposer.createObjectTC({
 })
 export const login = schemaComposer.createResolver({
   name: 'login',
-  // args: {
-  //   username: 'String!',
-  //   password: 'String!',
-  // },
   args: {
-    record: LoginInput,
+    username: 'String!',
+    password: 'String!',
   },
+  // args: {
+  //   record: LoginInput,
+  // },
   type: LoginPayload,
   resolve: async ({ args }) => {
-    const { username, password } = args.record
+    const { username, password } = args
     const user = await UserModel.findOne({ username })
     if (!user) {
       throw new UserInputError(`Username ${username} not found`)

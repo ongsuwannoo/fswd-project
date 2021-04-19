@@ -4,11 +4,12 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 
 mongoose.Promise = Promise
 mongoose.connect(
-  'mongodb+srv://cluster0.zjqna.mongodb.net',
+  'mongodb://localhost:27017',
+  // 'mongodb+srv://cluster0.zjqna.mongodb.net',
   {
-    dbName: 'Marketry',
-    user: DB_USERNAME,
-    pass: DB_PASSWORD,
+    dbName: 'test',
+    // user: DB_USERNAME,
+    // pass: DB_PASSWORD,
     promiseLibrary: Promise,
     useNewUrlParser: true,
     useUnifiedTopology: true,

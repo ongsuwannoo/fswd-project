@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useCallback, useState } from 'react'
 
 import { useSession } from '../../contexts/SessionContext';
 
 const Login = () => {
+  const history = useHistory()
   const { login } = useSession()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -23,8 +24,9 @@ const Login = () => {
     async (e) => {
       e.preventDefault()
       await login(username, password)
+      history.push('/')
     },
-    [login, username, password],
+    [login, username, password, history],
   )
   return (
     <div className="container px-96 bg-gray-200">

@@ -1,4 +1,4 @@
-/*! tailwindcss v2.1.1 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v2.1.0 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -26792,6 +26792,7 @@ video {
 
 .select-all {
   -webkit-user-select: all;
+      -ms-user-select: all;
           user-select: all;
 }
 
@@ -58114,6 +58115,7 @@ video {
 
   .sm\:select-all {
     -webkit-user-select: all;
+        -ms-user-select: all;
             user-select: all;
   }
 
@@ -89271,6 +89273,7 @@ video {
 
   .md\:select-all {
     -webkit-user-select: all;
+        -ms-user-select: all;
             user-select: all;
   }
 
@@ -120428,6 +120431,7 @@ video {
 
   .lg\:select-all {
     -webkit-user-select: all;
+        -ms-user-select: all;
             user-select: all;
   }
 
@@ -151585,6 +151589,7 @@ video {
 
   .xl\:select-all {
     -webkit-user-select: all;
+        -ms-user-select: all;
             user-select: all;
   }
 
@@ -182742,6 +182747,7 @@ video {
 
   .\32xl\:select-all {
     -webkit-user-select: all;
+        -ms-user-select: all;
             user-select: all;
   }
 

@@ -6,7 +6,7 @@ mongoose.Promise = Promise
 mongoose.connect(
   'mongodb+srv://cluster0.zjqna.mongodb.net',
   {
-    dbName: 'Margetry',
+    dbName: 'Marketry',
     user: DB_USERNAME,
     pass: DB_PASSWORD,
     promiseLibrary: Promise,

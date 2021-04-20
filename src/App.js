@@ -8,6 +8,7 @@ const Register = React.lazy(() => import('./Pages/Register/Register'))
 const Home = React.lazy(() => import('./Pages/Home/Home'))
 const Login = React.lazy(() => import('./Pages/Login/Login'))
 const OrderDetail = React.lazy(() => import('./Pages/OrderDetail/orderId'))
+const Admin = React.lazy(() => import('./Pages/Admin/admin'))
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
               </Route>
               <Route path="/product/:productSlug">
                 <OrderDetail />
+              </Route>
+              <Route path="/admin">
+                <Admin/>
               </Route>
             </Switch>
           </Suspense>

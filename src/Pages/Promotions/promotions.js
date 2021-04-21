@@ -3,31 +3,39 @@ import Nav from "../../components/Nav/Nav"
 
 import inext from "../../icon/chevron-right-solid.svg"
 
-function Promotions(){
-    return(
+function Promotions() {
+    return (
         <div className="container px-32">
-            <Nav/>
+            <Nav />
 
             <div className="flex justify-left item-center gap-x-2 h-10 py-2 font-light">
                 <a className="hover:text-blue-600" href="/">หน้าแรก</a>
                 <p> &gt; </p>
-                <a className="underline hover:text-blue-600" href="/promotions">โปรโมชันooo</a>
+                <a className="underline hover:text-blue-600" href="/promotions">โปรโมชัน</a>
             </div>
             <hr></hr>
 
             {/* Filter */}
             <div className="flex items-center h-15 p-4 my-2 px-2 bg-gray-100 w-full">
                 <h5 className="mx-2 px-5">แสดงตาม</h5>
-                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">ขายดี</button>
+                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">1 แถม 1</button>
                 <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">ล่าสุด</button>
-                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">ลดราคา</button>
                 <select className="bg-white text-black mx-2 px-5 rounded border-2 border-black">
-                    <option>ราคา</option>
-                    <option value="mintomax">ราคาน้อยไปมาก</option>
-                    <option value="maxtomin">ราคามากไปน้อย</option>
+                    <option>ลดราคา</option>
+                    <option value="mintomax">ลดราคาน้อยไปมาก</option>
+                    <option value="maxtomin">ลดราคามากไปน้อย</option>
+                </select>
+                <select className="bg-white text-black mx-2 px-5 rounded border-2 border-black">
+                    <option>ประเภท</option>
+                    <option value="">เสื้อ</option>
+                    <option value="">กางเกง</option>
+                    <option value="">กระโปรง</option>
+                    <option value="">เครื่องประดับ</option>
                 </select>
             </div>
-
+            <div className="flex justify-center py-5">
+                <h2 className="text-3xl font-bold">โปรโมชันพิเศษ</h2>
+            </div>
             {/* products */}
             <div className="grid grid-cols-12 my-8">
                 <ProductCard span="col-span-3 px-4 mt-4" />
@@ -48,7 +56,7 @@ function Promotions(){
                 </button>
                 <p className="text-blue-600 text-l font-bold">1</p>
                 <button name="next" type="submit">
-                <img alt="pre" className="w-5" src={inext} />
+                    <img alt="pre" className="w-5" src={inext} />
                 </button>
                 {/* <button className="hover:text-blue-600" name="last" type="submit">LAST</button> */}
             </div>

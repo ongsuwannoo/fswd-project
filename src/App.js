@@ -3,12 +3,14 @@ import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav"
+import Footer from "./components/Footer/Footer"
 
 const Register = React.lazy(() => import('./Pages/Register/Register'))
 const Home = React.lazy(() => import('./Pages/Home/Home'))
 const Login = React.lazy(() => import('./Pages/Login/Login'))
 const OrderDetail = React.lazy(() => import('./Pages/OrderDetail/orderId'))
 const Admin = React.lazy(() => import('./Pages/Admin/admin'))
+const Product = React.lazy(() => import('./Pages/Products/product'))
 
 function App() {
   return (
@@ -33,8 +35,12 @@ function App() {
               <Route path="/admin">
                 <Admin/>
               </Route>
+              <Route path="/product">
+                <Product/>
+              </Route>
             </Switch>
           </Suspense>
+          <Footer />
         </div>
       </Router>
     </Fragment>

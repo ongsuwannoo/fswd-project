@@ -1,6 +1,9 @@
 import { useSession } from '../../contexts/SessionContext'
 import { Fragment, useMemo } from 'react'
 
+import icart from "../../icon/shopping-cart-solid.svg"
+import icartadd from "../../icon/cart-plus-solid.svg"
+
 function Nav() {
   const { loading, user, logout: handleLogout } = useSession();
   const userBox = useMemo(
@@ -32,27 +35,26 @@ function Nav() {
   )
 
   return (
-    <nav>
-      <div className="grid grid-cols-12 gap-x-5 text-center py-4">
-        <div className="col-span-1"></div>
-        <a href="/"><h2 className="col-span-1 text-2xl">Marketry</h2></a>
-        <input type="text" placeholder="Search for products" className="col-span-6 placeholder-gray-400"></input>
+    <nav className="px-32">
+      <div className="flex justify-between items-center gap-x-5 py-4 ">
+        <a href="/"><h2 className=" text-2xl">Marketry</h2></a>
+        <input className="flex-grow placeholder-gray-400 border-2 border-gray-400 " type="text" placeholder="Search for products" ></input>
         {userBox}
-        <a className="col-span-1" href="cart">cart</a>
-        <div className="col-span-1"></div>
+        <a className="col-span-1" href="cart">
+          <img src={icart} className="w-5"></img>
+        </a>
       </div>
       <hr></hr>
 
       <div>
-        <ul className="grid grid-cols-12 gap-x-10 text-center py-2">
-          <div className="col-span-3"></div>
-          <li><a href="/" className="col-span-1">หน้าแรก</a> </li>
-          <li><a href="/" className="col-span-1">เสื้อ</a> </li>
-          <li><a href="/" className="col-span-1"> กางเกง</a></li>
-          <li><a href="/" className="col-span-1">กระโปรง</a> </li>
-          <li><a href="/" className="col-span-1">เครื่องประดับ</a> </li>
-          <li><a href="promotions" className="col-span-1">โปรโมชัน</a></li>
-          <div className="col-span-3"></div>
+        <ul className="flex justify-center gap-x-20 py-2">
+          <li><a className="focus:text-blue-500" href="/">หน้าแรก</a> </li>
+          <li><a className="" href="/product">สินค้าทั้งหมด</a> </li>
+          <li><a href="/">เสื้อ</a> </li>
+          <li><a href="/"> กางเกง</a></li>
+          <li><a href="/">กระโปรง</a> </li>
+          <li><a href="/">เครื่องประดับ</a> </li>
+          <li><a className="" href="promotions">โปรโมชัน</a></li>
         </ul>
       </div>
       <hr></hr>

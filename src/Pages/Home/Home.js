@@ -1,11 +1,13 @@
 import ProductCard from '../../components/productCard/ProductCard'
+import Nav from "../../components/Nav/Nav"
 
 function Home(){
     return(
-      <div className="container px-32 ">
+      <div className="container px-32">
+        <Nav/>
         {/* latest Promotion */}
         <img src="https://via.placeholder.com/1800x500" className="mt-16" alt="latest promo"></img>
-        <div className="flex justify-center py-2">
+        <div className="flex justify-center py-5">
           <h2 className="uppercase text-3xl">Promotions</h2>
         </div>
 

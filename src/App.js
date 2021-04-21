@@ -8,14 +8,16 @@ const Register = React.lazy(() => import('./Pages/Register/Register'))
 const Home = React.lazy(() => import('./Pages/Home/Home'))
 const Login = React.lazy(() => import('./Pages/Login/Login'))
 const OrderDetail = React.lazy(() => import('./Pages/OrderDetail/orderId'))
-const Admin = React.lazy(() => import('./Pages/Admin/admin'))
+const AdminHandle = React.lazy(() => import('./Pages/Admin/AdminHandle'))
+const CreateProduct = React.lazy(() => import('./Pages/Admin/createproduct/createProduct'))
+
 
 function App() {
   return (
     <Fragment>
       <Router>
         <div>
-          <Nav />
+          
           <Suspense fallback="Loading ...">
             <Switch>
               <Route exact path="/">
@@ -31,7 +33,10 @@ function App() {
                 <OrderDetail />
               </Route>
               <Route path="/admin">
-                <Admin/>
+                <AdminHandle/>
+              </Route>
+              <Route path="/admin/createproduct">
+                <CreateProduct/>
               </Route>
             </Switch>
           </Suspense>

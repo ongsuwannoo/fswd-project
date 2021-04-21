@@ -28,3 +28,5 @@ node_modules/.bin
 node_modules/.bin/acorn
 node_modules
 
+/backend-test/node_modules
+/backend-test/client/node_modules

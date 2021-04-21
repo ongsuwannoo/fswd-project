@@ -24,3 +24,7 @@ yarn-error.log*
 
 .env
 /backend/node_modules
+node_modules/.bin
+node_modules/.bin/acorn
+node_modules
+

@@ -11,7 +11,7 @@ function Promotions(){
             <div className="flex justify-left item-center gap-x-2 h-10 py-2 font-light">
                 <a className="hover:text-blue-600" href="/">หน้าแรก</a>
                 <p> &gt; </p>
-                <a className="underline hover:text-blue-600" href="/promotions">โปรโมชัน</a>
+                <a className="underline hover:text-blue-600" href="/promotions">โปรโมชันooo</a>
             </div>
             <hr></hr>
 

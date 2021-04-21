@@ -2,7 +2,6 @@ import { useSession } from '../../contexts/SessionContext'
 import { Fragment, useMemo } from 'react'
 
 import icart from "../../icon/shopping-cart-solid.svg"
-import icartadd from "../../icon/cart-plus-solid.svg"
 
 function Nav() {
   const { loading, user, logout: handleLogout } = useSession();
@@ -25,9 +24,9 @@ function Nav() {
       }
       return (
         <div className="col-span-2">
-          <a href="login">เข้าสู่ระบบ</a>
+          <a className="hover:text-blue-600" href="login">เข้าสู่ระบบ</a>
           <span> | </span>
-          <a href="register">ลงทะเบียน</a>
+          <a className="hover:text-blue-600" href="register">ลงทะเบียน</a>
         </div>
       )
     },
@@ -35,7 +34,7 @@ function Nav() {
   )
 
   return (
-    <nav className="px-32">
+    <nav className="">
       <div className="flex justify-between items-center gap-x-5 py-4 ">
         <a href="/"><h2 className=" text-2xl">Marketry</h2></a>
         <input className="flex-grow placeholder-gray-400 border-2 border-gray-400 " type="text" placeholder="Search for products" ></input>
@@ -48,13 +47,13 @@ function Nav() {
 
       <div>
         <ul className="flex justify-center gap-x-20 py-2">
-          <li><a className="focus:text-blue-500" href="/">หน้าแรก</a> </li>
-          <li><a className="" href="/product">สินค้าทั้งหมด</a> </li>
-          <li><a href="/">เสื้อ</a> </li>
-          <li><a href="/"> กางเกง</a></li>
-          <li><a href="/">กระโปรง</a> </li>
-          <li><a href="/">เครื่องประดับ</a> </li>
-          <li><a className="" href="promotions">โปรโมชัน</a></li>
+          <li><a className="hover:text-blue-600" href="/">หน้าแรก</a> </li>
+          <li><a className="hover:text-blue-600" href="/product">สินค้าทั้งหมด</a> </li>
+          <li><a className="hover:text-blue-600" href="/">เสื้อ</a> </li>
+          <li><a className="hover:text-blue-600" href="/"> กางเกง</a></li>
+          <li><a className="hover:text-blue-600" href="/">กระโปรง</a> </li>
+          <li><a className="hover:text-blue-600" href="/">เครื่องประดับ</a> </li>
+          <li><a className="hover:text-blue-600" href="promotions">โปรโมชัน</a></li>
         </ul>
       </div>
       <hr></hr>

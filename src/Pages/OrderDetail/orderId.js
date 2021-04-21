@@ -24,7 +24,7 @@ function orderId(){
                     <div>
                         <h1 className="uppercase font-bold text-4xl">g-shock</h1>
                         <h3 className="py-4">นาฬิกาข้อมือ รุ่น G-SHOCK GBD-H1000-1A4DR สีดำ</h3>
-                        <h5 className="text-blue-500 text-2xl">฿550</h5>
+                        <h5 className="text-blue-600 text-2xl">฿550</h5>
                         <div className="grid grid-cols-12 py-8">
                             <input  className="col-span-4 py-1 mx-2 text-center border border-black hover:border-2" type="number" name="" id=""></input>
                             <button className="col-span-4 py-1 mx-2 bg-white text-black border border-black">cart</button>

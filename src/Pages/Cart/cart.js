@@ -10,27 +10,25 @@ const Cart = () => {
             </div>
             <div>
                 {/* table header */}
-                <div className="grid grid-cols-12">
-                    <div className="col-span-8 grid grid-cols-12">
-                        <div className="col-span-2 h-0">
-                            <p>สินค้า</p>
+                <div className="grid grid-cols-12 gap-x-4">
+                    <div className="col-span-9">
+                        <div className=" grid grid-cols-12">
+                            <div className="col-span-6 py-4">
+                                <p>สินค้า</p>
+                            </div>
+                            <div className="col-span-2 text py-4 text-center ">
+                                <p>ราคาต่อชิ้น</p>
+                            </div>
+                            <div className="col-span-2 text py-4 text-center ">
+                                <p>จำนวน</p>
+                            </div>
+                            <div className="col-span-2 text py-4 text-center ">
+                                <p>ราคารวม</p>
+                            </div>
                         </div>
-                        <div className="col-span-4 flex justify-center ">
-                            <p>รายละเอียดสินค้า</p>
-                        </div>
-                        <div className="col-span-2 flex justify-center ">
-                            <p>ราคาต่อชิ้น</p>
-                        </div>
-                        <div className="col-span-2 flex justify-center ">
-                            <p>จำนวน</p>
-                        </div>
-                        <div className="col-span-2 flex justify-center ">
-                            <p>ราคารวม</p>
-                        </div>
-                        <CartItem/>
+                        <CartItem />
                     </div>
-
-                    <div className="col-span-4 border border-black flex flex-col justify-center">
+                    <div className="col-span-3 border border-black flex flex-col justify-center">
                         <div className="flex justify-between px-4 py-2">
                             <p>2 ชิ้น</p>
                             <p>฿1,100</p>
@@ -44,12 +42,11 @@ const Cart = () => {
                             <p className="text-blue-500">฿1,100</p>
                         </div>
                         <button className="px-8 py-2 mx-4 bg-black text-white my-4">ดำเนินการชำระเงิน</button>
-                    </div>                    
+                    </div>
                 </div>
 
             </div>
-            <hr></hr>
-            
+
         </div>
     )
 }

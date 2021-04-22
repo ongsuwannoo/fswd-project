@@ -10,7 +10,8 @@ const Customer = () => {
                         <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer font-bold">บัญชีของฉัน</span>
                         <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer">ข้อมูลของฉัน</span>
                         <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer">ข้อมูลส่วนตัว</span>
-                        <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer border-t border-gray-400">รายการสั่งซื้อของฉัน</span>
+                        <hr></hr>
+                        <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer ">รายการสั่งซื้อของฉัน</span>
                     </div>
                 </div>
                 <div className="col-span-9">

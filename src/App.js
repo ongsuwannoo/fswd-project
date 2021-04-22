@@ -2,7 +2,6 @@ import React, { Fragment, Suspense } from 'react'
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from "./components/Nav/Nav"
 import Footer from "./components/Footer/Footer"
 
 const Register = React.lazy(() => import('./Pages/Register/Register'))
@@ -13,6 +12,7 @@ const AdminHandle = React.lazy(() => import('./Pages/Admin/AdminHandle'))
 const CreateProduct = React.lazy(() => import('./Pages/Admin/createproduct/createProduct'))
 const Product = React.lazy(() => import('./Pages/Products/product'))
 const Promotions = React.lazy(() => import('./Pages/Promotions/promotions'))
+const Cart =React.lazy(() => import('./Pages/Cart/cart'))
 
 function App() {
   return (
@@ -45,6 +45,9 @@ function App() {
               </Route>
               <Route path="/promotions">
                 <Promotions/>
+              </Route>
+              <Route path="/cart">
+                <Cart/>
               </Route>
             </Switch>
           </Suspense>

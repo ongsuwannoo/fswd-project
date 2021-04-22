@@ -15,7 +15,7 @@ const Admin = () => {
             <Route exact path={`${path}`}>
                 <AdminDashboard />
             </Route>
-            <Route path={`${path}/createproduct`}>
+            <Route path={`${path}/create`}>
                 <CreateProduct />
             </Route>
         </Switch>

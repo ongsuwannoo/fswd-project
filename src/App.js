@@ -14,6 +14,7 @@ const CreateProduct = React.lazy(() => import('./Pages/Admin/createproduct/creat
 const Product = React.lazy(() => import('./Pages/Products/product'))
 const Promotions = React.lazy(() => import('./Pages/Promotions/promotions'))
 const Cart = React.lazy(() => import('./Pages/Cart/cart'))
+const Customer = React.lazy(() => import('./Pages/Customer/customer'))
 
 function App() {
   return (
@@ -49,6 +50,9 @@ function App() {
               </Route>
               <Route path="/cart">
                 <Cart />
+              </Route>
+              <Route path="/customer">
+                <Customer/>
               </Route>
             </Switch>
           </Suspense>

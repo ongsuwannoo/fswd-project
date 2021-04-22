@@ -14,7 +14,9 @@ import './tailwind.output.css';
 const uri = 'http://localhost:3001/graphql'
 const client = new ApolloClient({
   uri: uri,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    addTypename: false
+  }),
   credentials: 'include',
   link: createUploadLink({
     uri: uri

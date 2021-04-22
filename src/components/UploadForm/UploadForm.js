@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client'
 
 import { UPLOAD_FILE } from '../../graphql/uploadForm'
 
-export const UploadForm = (prop) => {
+export const UploadForm = (props) => {
   const [images, setImages] = useState([]);
   const [uploadFile] = useMutation(UPLOAD_FILE, {
     onCompleted: async data => {
@@ -12,8 +12,8 @@ export const UploadForm = (prop) => {
   })
 
   useEffect(() => {
-    prop.handleReturnImage(images)
-  }, [images]);
+    props.handleReturnImage(images);
+  }, [images])
 
   const handleFileChange = (e) => {
     const files = e.target.files
@@ -29,11 +29,6 @@ export const UploadForm = (prop) => {
         onChange={handleFileChange}
         multiple
         accept="image/png, image/jpeg" />
-      {
-        images.map((url, i) => {
-          return <img key={i} src={url} alt="img" width="100" />
-        })
-      }
     </div>
   );
 }

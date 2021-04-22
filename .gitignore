@@ -30,3 +30,4 @@ node_modules
 
 /backend-test/node_modules
 /backend-test/client/node_modules
+/backend/public/images/

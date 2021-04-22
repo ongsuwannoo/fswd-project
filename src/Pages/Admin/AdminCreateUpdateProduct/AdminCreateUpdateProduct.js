@@ -1,30 +1,48 @@
-import React, { useState, useCallback } from "react";
-import { useMutation } from '@apollo/client'
-import { useHistory } from 'react-router'
+import React, { useState, useCallback, useEffect } from "react";
+import { useMutation, useLazyQuery } from '@apollo/client'
+import { useHistory, useParams } from 'react-router'
 
-import { CREATE_PRODUCT_MUTATION } from '../../../graphql/createProductMutation'
+import { CREATE_PRODUCT_MUTATION, PRODUCT_QUERY, UPDATE_PRODUCT } from '../../../graphql/Product'
 
 import { isNumeric } from '../../../utils/isNumeric'
 import { InputAdd } from '../../../components/InputAdd/InputAdd'
 import { UploadForm } from '../../../components/UploadForm/UploadForm'
 
-const CreateProduct = () => {
+const AdminProduct = () => {
+  const { productId } = useParams();
+  const isUpdateProduct = true ? productId : false;
+
   const history = useHistory()
   const [createProduct] = useMutation(CREATE_PRODUCT_MUTATION)
+  const [updateProduct] = useMutation(UPDATE_PRODUCT)
 
   const [newProduct, setNewProduct] = useState({ tag: [] });
   const [numTag, setNumTeg] = useState(0);
   const [disabled, setDisabled] = useState({});
   const [valueTag, setValueTag] = useState({});
+  const [getProduct] = useLazyQuery(PRODUCT_QUERY, {
+    variables: { productId },
+    onCompleted: async data => {
+      setNewProduct(data.productById)
+      setNumTeg(data.productById.tag.length)
+    }
+  });
   const tags = [];
 
+  // Check page Update or Create
+  useEffect(() => {
+    if (!isUpdateProduct) return
+    getProduct()
+  }, [isUpdateProduct, getProduct]);
+
+  // loop create tags
   for (var i = 0; i < numTag; i++) {
     tags.push(
       <InputAdd
         key={i}
         name={'tag' + i}
         index={i}
-        value={valueTag['tag' + i]}
+        value={newProduct.tag[i]}
         onChange={() => handleChangeInputTag}
         onKeyDown={(e) => handleKeyDownInputTag(e)}
         disabled={(disabled['tag' + i]) ? "disabled" : ""}
@@ -67,7 +85,7 @@ const CreateProduct = () => {
     })
   }
 
-
+  // Send state to uploadImage
   const handleReturnImage = (value) => {
     setNewProduct({
       ...newProduct,
@@ -90,52 +108,64 @@ const CreateProduct = () => {
   )
 
   // Submit useMutation createProduct -> backend
-  const handleSubmit = useCallback(
+  const handleSubmitCreate = useCallback(
     async (e) => {
       e.preventDefault()
       try {
-        await createProduct({ variables: { record: newProduct } })
-        alert('Register success')
-        history.push('/')
+        if (isUpdateProduct) {
+          console.log("Update Product");
+          await updateProduct({ variables: { record: newProduct, productId } })
+          alert('Update success')
+          history.push('/admin')
+        } else {
+          console.log("Create Product");
+          await createProduct({ variables: { record: newProduct } })
+          alert('Create success')
+          history.push('/admin')
+        }
+
       } catch (err) {
         console.log(err)
         alert('Register failed')
       }
     },
-    [createProduct, newProduct],
+    [createProduct, newProduct, history],
   )
 
   return (
     <div className="bg-blue-200">
       <div className="container bg-gray-50 px-16 ">
-        <form className="flex flex-col" onSubmit={handleSubmit}>
-          <h1 className="text-green-500 text-3xl">Create Product</h1>
-
+        {
+          isUpdateProduct
+            ? <h1 className="text-yellow-500 text-3xl">Update Product</h1>
+            : <h1 className="text-green-500 text-3xl">Create Product</h1>
+        }
+        <form className="flex flex-col" onSubmit={handleSubmitCreate}>
           {/* Product Name */}
           <label>Product Name</label>
-          <input onChange={handleInputChange} type="text" name="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
+          <input onChange={handleInputChange} value={newProduct.name} type="text" name="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
 
           {/* Description */}
           <label>Description</label>
-          <textarea onChange={handleInputChange} name="description" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+          <textarea onChange={handleInputChange} value={newProduct.description} name="description" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
 
           {/* TYPE */}
           <label>Type</label>
-          <select onChange={handleInputChange} name="type" id="type" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+          <select onChange={handleInputChange} value={newProduct.type} name="type" id="type" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
             <option value="">-- Please select one --</option>
             <option value="shirt">เสื้อ</option>
           </select>
 
           {/* COLOR */}
           <label>Color</label>
-          <select onChange={handleInputChange} name="color" id="color" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+          <select onChange={handleInputChange} value={newProduct.color} name="color" id="color" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
             <option value="">-- Please select one --</option>
             <option value="Green">Green</option>
           </select>
 
           {/* SIZE */}
           <label>Size</label>
-          <select onChange={handleInputChange} name="size" id="size" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+          <select onChange={handleInputChange} value={newProduct.size} name="size" id="size" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
             <option value="">-- Please select one --</option>
             <option value="M">M</option>
             <option value="L">L</option>
@@ -153,21 +183,25 @@ const CreateProduct = () => {
 
           {/* Picture */}
           <label>Picture</label>
-          <UploadForm handleReturnImage={handleReturnImage} />
-
+          <UploadForm handleReturnImage={handleReturnImage} images={newProduct.image} />
+          {
+            newProduct.image?.map((url, i) => {
+              return <img key={i} src={url} alt="img" width="100" />
+            })
+          }
           {/* Price */}
           <div className="inline">
             <label>Price</label>
-            <input onChange={handleInputChange} type="number" name="price" id="number" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
+            <input onChange={handleInputChange} value={newProduct.price} type="number" name="price" id="number" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
             <label >Count</label>
-            <input onChange={handleInputChange} type="number" name="count" id="count" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
+            <input onChange={handleInputChange} value={newProduct.count} type="number" name="count" id="count" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
           </div>
 
           {/* Status */}
           <label >Status</label>
           <div className="inline">
             <label className="inline-flex items-center mt-3">
-              <input onChange={handleInputChange} type="checkbox" className="form-checkbox h-5 w-5 text-green-600" name="active" /><span className="ml-2 text-gray-700">Active</span>
+              <input onChange={handleInputChange} defaultChecked={newProduct.active} type="checkbox" className="form-checkbox h-5 w-5 text-green-600" name="active" /><span className="ml-2 text-gray-700">Active</span>
             </label>
           </div>
 
@@ -185,4 +219,4 @@ const CreateProduct = () => {
     </div>
   )
 }
-export default CreateProduct;
+export default AdminProduct;

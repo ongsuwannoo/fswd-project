@@ -4,7 +4,7 @@ import {
     Switch,
     useRouteMatch
   } from "react-router-dom";
-import CreateProduct from './createproduct/createProduct';
+import AdminProduct from './AdminProduct/AdminProduct';
 import AdminDashboard from './Admin/AdminDashboard';
 
 const Admin = () => {
@@ -15,8 +15,8 @@ const Admin = () => {
             <Route exact path={`${path}`}>
                 <AdminDashboard />
             </Route>
-            <Route path={`${path}/createproduct`}>
-                <CreateProduct />
+            <Route path={`${path}/product`}>
+                <AdminProduct />
             </Route>
         </Switch>
         </div>

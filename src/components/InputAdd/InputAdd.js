@@ -6,6 +6,7 @@ export const InputAdd = (prop) => {
       onChange={prop.onChange}
       onKeyDown={prop.onKeyDown}
       disabled={prop.disabled}
+      value={prop.value}
     />
   )
 }

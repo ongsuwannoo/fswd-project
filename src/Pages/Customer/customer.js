@@ -1,19 +1,12 @@
 import Nav from '../../components/Nav/Nav'
+import CustomerSide from '../../components/CustomerSide/CustomerSide'
 
 const Customer = () => {
     return (
         <div className="contanier px-32 mx-auto">
             <Nav />
             <div className="grid grid-cols-12 gap-x-16">
-                <div className="col-span-3 my-8" >
-                    <div className="flex flex-col border border-gray-300">
-                        <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer font-bold">บัญชีของฉัน</span>
-                        <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer">ข้อมูลของฉัน</span>
-                        <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer">ข้อมูลส่วนตัว</span>
-                        <hr></hr>
-                        <span className="p-4 hover:bg-blue-500 hover:text-white cursor-pointer ">รายการสั่งซื้อของฉัน</span>
-                    </div>
-                </div>
+                <CustomerSide />
                 <div className="col-span-9">
                     <h1 className="text-center text-3xl py-8">ข้อมูลของฉัน</h1>
                     <div className="grid grid-cols-12 gap-x-8">

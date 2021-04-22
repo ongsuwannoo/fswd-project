@@ -9,8 +9,6 @@ const fs = require('fs')
 
 schemaComposer.add(GraphQLUpload);
 
-export const createProduct = ProductTC.getResolver('createOne')
-
 const UploadPayload = schemaComposer.createObjectTC({
   name: 'UploadPayload',
   fields: {
@@ -41,3 +39,6 @@ export const uploadFile = schemaComposer.createResolver({
     };
   },
 })
+
+export const createProduct = ProductTC.getResolver('createOne')
+export const updateProductById = ProductTC.getResolver('updateById')

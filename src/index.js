@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { CookiesProvider } from 'react-cookie'
 import { BrowserRouter } from 'react-router-dom'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { createUploadLink } from 'apollo-upload-client'
 
 import './index.css';
 import App from './App';
@@ -10,10 +11,14 @@ import { SessionProvider } from './contexts/SessionContext'
 import reportWebVitals from './reportWebVitals';
 import './tailwind.output.css';
 
+const uri = 'http://localhost:3001/graphql'
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: uri,
   cache: new InMemoryCache(),
   credentials: 'include',
+  link: createUploadLink({
+    uri: uri
+  }),
 })
 
 ReactDOM.render(

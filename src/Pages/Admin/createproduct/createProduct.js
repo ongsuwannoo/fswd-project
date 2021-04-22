@@ -5,26 +5,26 @@ import { useHistory } from 'react-router'
 import { CREATE_PRODUCT_MUTATION } from '../../../graphql/createProductMutation'
 
 import { isNumeric } from '../../../utils/isNumeric'
+import { InputAdd } from '../../../components/InputAdd/InputAdd'
+import { UploadForm } from '../../../components/UploadForm/UploadForm'
 
 const CreateProduct = () => {
   const history = useHistory()
   const [createProduct] = useMutation(CREATE_PRODUCT_MUTATION)
 
-  const [newProduct, setNewProduct] = useState({
-    image: ["Link1", "Link2"],
-    tag: []
-  });
+  const [newProduct, setNewProduct] = useState({ tag: [] });
   const [numTag, setNumTeg] = useState(0);
-  const [input, setInput] = useState({});
   const [disabled, setDisabled] = useState({});
+  const [valueTag, setValueTag] = useState({});
   const tags = [];
+
   for (var i = 0; i < numTag; i++) {
     tags.push(
-      <input
-        className="shadow appearance-none border rounded w-min py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      <InputAdd
         key={i}
         name={'tag' + i}
-        value={input['tag' + i]}
+        index={i}
+        value={valueTag['tag' + i]}
         onChange={() => handleChangeInputTag}
         onKeyDown={(e) => handleKeyDownInputTag(e)}
         disabled={(disabled['tag' + i]) ? "disabled" : ""}
@@ -32,24 +32,28 @@ const CreateProduct = () => {
     );
   }
 
+  // Assign each ValueTag
+  const handleChangeInputTag = (e) => {
+    const value = e.target.value;
+    setValueTag({
+      ...valueTag,
+      [e.target.name]: value
+    });
+  }
+
+  // Add Tag from onClick
   const handleAddTags = (e) => {
     setNumTeg(numTag + e)
   }
 
+  // Check key press Enter in input tag  
   const handleKeyDownInputTag = (e) => {
     if (e.key === 'Enter') {
       handleDisableTags(e)
     }
   }
 
-  const handleChangeInputTag = (e) => {
-    const value = e.target.value;
-    setInput({
-      ...input,
-      [e.target.name]: value
-    });
-  }
-
+  // Disable input tag And setNewProduct
   const handleDisableTags = (e) => {
     const value = e.target.value;
     setDisabled({
@@ -63,6 +67,15 @@ const CreateProduct = () => {
     })
   }
 
+
+  const handleReturnImage = (value) => {
+    setNewProduct({
+      ...newProduct,
+      image: value
+    })
+  }
+
+  // setNewProduct from input, option, checkbox form
   const handleInputChange = useCallback(
     (e) => {
       let { name, value } = e.target
@@ -76,6 +89,7 @@ const CreateProduct = () => {
     [],
   )
 
+  // Submit useMutation createProduct -> backend
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault()
@@ -139,7 +153,7 @@ const CreateProduct = () => {
 
           {/* Picture */}
           <label>Picture</label>
-          <input type="file" name="pic" id="pic" multiple className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
+          <UploadForm handleReturnImage={handleReturnImage} />
 
           {/* Price */}
           <div className="inline">
@@ -148,18 +162,24 @@ const CreateProduct = () => {
             <label >Count</label>
             <input onChange={handleInputChange} type="number" name="count" id="count" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></input>
           </div>
+
+          {/* Status */}
           <label >Status</label>
           <div className="inline">
             <label className="inline-flex items-center mt-3">
               <input onChange={handleInputChange} type="checkbox" className="form-checkbox h-5 w-5 text-green-600" name="active" /><span className="ml-2 text-gray-700">Active</span>
             </label>
           </div>
+
+          {/* Main save */}
           <button type="submit" className="bg-green-400 hover:bg-green-500 text-white font-semibold py-2 px-4 border border-green-500 hover:border-transparent rounded w-max">
             Save Product
           </button>
-          <button type="button" onClick={() => console.log(newProduct)} className="bg-green-400 hover:bg-green-500 text-white font-semibold py-2 px-4 border border-green-500 hover:border-transparent rounded w-max">
+
+          {/* Test Save Product Log data newProduct */}
+          {/* <button type="button" onClick={() => console.log(newProduct)} className="bg-green-400 hover:bg-green-500 text-white font-semibold py-2 px-4 border border-green-500 hover:border-transparent rounded w-max">
             Test Save Product
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

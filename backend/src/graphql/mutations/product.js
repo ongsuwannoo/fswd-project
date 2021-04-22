@@ -2,6 +2,8 @@ import { ProductTC } from '../../models'
 import { schemaComposer } from 'graphql-compose'
 import { GraphQLUpload } from 'apollo-upload-server';
 
+import { generateRandomString } from '../../utils/generateRandomString'
+
 const path = require('path')
 const fs = require('fs')
 
@@ -23,16 +25,19 @@ export const uploadFile = schemaComposer.createResolver({
   },
   type: UploadPayload,
   resolve: async ({ args }) => {
-    const { createReadStream, filename, mimetype, mode } = await args.file.file
-    
-    const pathName = path.join(__dirname, `../../../public/images/${filename}`)
-    console.log(pathName);
+    const file = args.file.file
+    const { createReadStream, filename} = await file
+
+    const { ext } = path.parse(filename)
+    const randomName = generateRandomString(12) + ext
+
+    const pathName = path.join(__dirname, `../../../public/images/${randomName}`)
     await new Promise((res) =>
       createReadStream().pipe(fs.createWriteStream(pathName)).on("close", res)
     );
 
     return {
-      url: `http://localhost:3001/images/${filename}`,
+      url: `http://localhost:3001/images/${randomName}`,
     };
   },
 })

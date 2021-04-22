@@ -3,7 +3,7 @@ import Nav from "../../components/Nav/Nav"
 
 function Home(){
     return(
-      <div className="container px-32">
+      <div className="container px-32 mx-auto">
         <Nav/>
         {/* latest Promotion */}
         <img src="https://via.placeholder.com/1800x500" className="mt-16" alt="latest promo"></img>

@@ -37,10 +37,10 @@ function Nav() {
     <nav className="">
       <div className="flex justify-between items-center gap-x-5 py-4 ">
         <a href="/"><h2 className=" text-2xl">Marketry</h2></a>
-        <input className="flex-grow placeholder-gray-400 border-2 border-gray-400 " type="text" placeholder="Search for products" ></input>
+        <input className="flex-grow placeholder-gray-400 border border-gray-400 px-5" type="text" placeholder="Search for products" ></input>
         {userBox}
         <a className="col-span-1" href="cart">
-          <img src={icart} className="w-5"></img>
+          <img src={icart} alt="cartIcon" className="w-5"></img>
         </a>
       </div>
       <hr></hr>

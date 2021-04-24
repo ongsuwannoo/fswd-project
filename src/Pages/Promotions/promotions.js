@@ -5,9 +5,8 @@ import inext from "../../icon/chevron-right-solid.svg"
 
 function Promotions() {
     return (
-        <div className="container px-32">
+        <div className="container px-32 mx-auto">
             <Nav />
-
             <div className="flex justify-left item-center gap-x-2 h-10 py-2 font-light">
                 <a className="hover:text-blue-600" href="/">หน้าแรก</a>
                 <p> &gt; </p>

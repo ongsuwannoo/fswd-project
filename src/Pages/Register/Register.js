@@ -33,7 +33,7 @@ const Register = () => {
   return (
     <div>
       <Nav />
-      <div className="container px-96 bg-gray-200">
+      <div className="container px-96 bg-gray-200 ">
       <div className="flex justify-center">
         <form onSubmit={handleRegister}>
           <div className="grid grid-cols-12">

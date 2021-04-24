@@ -7,14 +7,18 @@ import cors from 'cors'
 import './mongoose-connect'
 import schema from './graphql'
 
+import { graphqlUploadExpress } from "graphql-upload";
+
 const path = '/graphql'
 const app = express()
 const server = new ApolloServer({
   schema,
   playground: true,
   context: ({ req }) => ({ user: req.user }),
+  uploads: false,
 })
 
+app.use(graphqlUploadExpress({ maxFileSize: 1000000000, maxFiles: 10 }));
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -48,6 +52,8 @@ app.use(
     })
   },
 )
+app.use(express.static('public'))
+
 server.applyMiddleware({ app, path, cors: { origin: 'http://localhost:3000', credentials: true } })
 
 const port = process.env.PORT ?? 5001

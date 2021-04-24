@@ -21,8 +21,8 @@ function Cart() {
                 <div className="col-span-7">
                     <CartCard />
                     <CartCard />
-
                 </div>
+                
                 {/* checkout */}
                 <div className="col-span-2 pt-5 px-2">
                     <div className="grid grid-cols-2 border border-gray-200 p-3">

@@ -45,6 +45,18 @@ function App() {
               <Route path="/promotions">
                 <Promotions />
               </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+              <Route path="/customer">
+                <Customer />
+              </Route>
+              <Route path="/checkout">
+                <Checkout />
+              </Route>
+              <Route path="/payment">
+                <Payment />
+              </Route>
             </Switch>
           </Suspense>
           <Footer />

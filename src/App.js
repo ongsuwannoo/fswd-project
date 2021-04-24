@@ -2,7 +2,6 @@ import React, { Fragment, Suspense } from 'react'
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from "./components/Nav/Nav"
 import Footer from "./components/Footer/Footer"
 
 const Register = React.lazy(() => import('./Pages/Register/Register'))
@@ -15,13 +14,15 @@ const Product = React.lazy(() => import('./Pages/Products/product'))
 const Promotions = React.lazy(() => import('./Pages/Promotions/promotions'))
 const Cart = React.lazy(() => import('./Pages/Cart/cart'))
 const Customer = React.lazy(() => import('./Pages/Customer/customer'))
+const Checkout = React.lazy(() => import('./Pages/Checkout/checkout'))
+const Payment = React.lazy(() => import('./Pages/Payment/payment'))
 
 function App() {
   return (
     <Fragment>
       <Router>
         <div>
-          
+
           <Suspense fallback="Loading ...">
             <Switch>
               <Route exact path="/">
@@ -37,16 +38,25 @@ function App() {
                 <OrderDetail />
               </Route>
               <Route path="/admin">
-                <AdminHandle/>
+                <AdminHandle />
               </Route>
               <Route path="/admin/createproduct">
-                <CreateProduct/>
+                <CreateProduct />
               </Route>
               <Route path="/product">
-                <Product/>
+                <Product />
               </Route>
               <Route path="/promotions">
-                <Promotions/>
+                <Promotions />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+              <Route path="/checkout">
+                <Checkout />
+              </Route>
+              <Route path="/payment">
+                <Payment />
               </Route>
               <Route path="/cart">
                 <Cart />

@@ -40,7 +40,7 @@ function Nav() {
         <input className="rounded px-2 py-1 flex-grow placeholder-gray-400 border border-gray-400 " type="text" placeholder="🔍 &nbsp;Search for products" ></input>
         {userBox}
         <a className="col-span-1" href="cart">
-          <img src={icart} className="w-5"></img>
+          <img src={icart} alt="cartIcon" className="w-5"></img>
         </a>
       </div>
       <hr></hr>

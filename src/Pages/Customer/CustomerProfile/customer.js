@@ -1,6 +1,5 @@
-import Nav from '../../components/Nav/Nav'
-import CustomerSide from '../../components/CustomerSide/CustomerSide'
-
+import Nav from '../../../components/Nav/Nav'
+import CustomerSide from '../../../components/CustomerSide/CustomerSide'
 const Customer = () => {
     return (
         <div className="contanier px-32 mx-auto">

@@ -13,7 +13,7 @@ const AdminHandle = React.lazy(() => import('./Pages/Admin/AdminHandle'))
 const Product = React.lazy(() => import('./Pages/Products/product'))
 const Promotions = React.lazy(() => import('./Pages/Promotions/promotions'))
 const Cart = React.lazy(() => import('./Pages/Cart/cart'))
-const Customer = React.lazy(() => import('./Pages/Customer/customer'))
+const Customer = React.lazy(() => import('./Pages/Customer/CustomerHandle'))
 const Checkout = React.lazy(() => import('./Pages/Checkout/checkout'))
 const Payment = React.lazy(() => import('./Pages/Payment/payment'))
 

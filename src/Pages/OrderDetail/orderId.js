@@ -2,7 +2,7 @@ import ProductCard from '../../components/productCard/ProductCard'
 
 function orderId(){
     return(
-        <div className="container px-32 ">
+        <div className="">
             <div className="grid grid-cols-12 mt-16">
                 <div className="col-span-1 px-4 flex flex-col justify-center items-center">
                     <img src="https://via.placeholder.com/122x122" class="py-1 cursor-pointer border-0 hover:border-black hover:border-2" alt="gallery image1"></img>

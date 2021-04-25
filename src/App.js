@@ -2,7 +2,7 @@ import React, { Fragment, Suspense } from 'react'
 import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Nav from "./components/Nav/Nav"
+import Nav from "./components/Nav/Nav"
 import Footer from "./components/Footer/Footer"
 
 const Register = React.lazy(() => import('./Pages/Register/Register'))
@@ -24,39 +24,43 @@ function App() {
         <div>
           <Suspense fallback="Loading ...">
             <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/product/:productSlug">
-                <OrderDetail />
-              </Route>
               <Route path="/admin">
                 <AdminHandle />
               </Route>
-              <Route path="/product">
-                <Product />
-              </Route>
-              <Route path="/promotions">
-                <Promotions />
-              </Route>
-              <Route path="/cart">
-                <Cart />
-              </Route>
-              <Route path="/customer">
-                <Customer />
-              </Route>
-              <Route path="/checkout">
-                <Checkout />
-              </Route>
-              <Route path="/payment">
-                <Payment />
-              </Route>
+              <div className="container px-32 mx-auto">
+                <Nav />
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/register">
+                  <Register />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/product/:productSlug">
+                  <OrderDetail />
+                </Route>
+                <Route path="/product">
+                  <Product />
+                </Route>
+                <Route path="/promotions">
+                  <Promotions />
+                </Route>
+                <Route path="/cart">
+                  <Cart />
+                </Route>
+                <Route path="/customer">
+                  <Customer />
+                </Route>
+                <Route path="/checkout">
+                  <Checkout />
+                </Route>
+                <Route path="/payment">
+                  <Payment />
+                </Route>
+              </div>
+
             </Switch>
           </Suspense>
           <Footer />

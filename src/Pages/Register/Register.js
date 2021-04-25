@@ -31,9 +31,7 @@ const Register = () => {
     [createUser, history, newUser],
   )
   return (
-    <div>
-      <Nav />
-      <div className="container px-96 bg-gray-200 ">
+    <div className="">
       <div className="flex justify-center">
         <form onSubmit={handleRegister}>
           <div className="grid grid-cols-12">
@@ -78,7 +76,6 @@ const Register = () => {
           </div>
         </form>
       </div>
-    </div>
     </div>
   );
 }

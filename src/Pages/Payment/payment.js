@@ -1,4 +1,3 @@
-import Nav from "../../components/Nav/Nav"
 import OrderCard from "../../components/orderCard/orderCard"
 
 import ipayondelivery from "../../icon/awesome-hand-holding-usd.svg"
@@ -6,8 +5,7 @@ import icreditcard from "../../icon/material-credit-card.svg"
 import ipaypal from "../../icon/simple-paypal.svg"
 function Payment() {
     return (
-        <div className="container px-32">
-            <Nav />
+        <div className="">
             <div className="flex justify-center">
                 <h2 className="text-3xl font-bold py-12">การชำระเงิน</h2>
             </div>

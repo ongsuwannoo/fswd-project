@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/client'
 
 import { CREATE_USER_MUTATION } from '../../graphql/createUserMutation'
 
-import Nav from '../../components/Nav/Nav'
 const Register = () => {
   const history = useHistory()
   const [newUser, setNewUser] = useState({ firstname: '', lastname: '', username: '', password: '' })
@@ -31,9 +30,7 @@ const Register = () => {
     [createUser, history, newUser],
   )
   return (
-    <div>
-      <Nav />
-      <div className="container px-96 bg-gray-200 ">
+    <div className="">
       <div className="flex justify-center">
         <form onSubmit={handleRegister}>
           <div className="grid grid-cols-12">
@@ -78,7 +75,6 @@ const Register = () => {
           </div>
         </form>
       </div>
-    </div>
     </div>
   );
 }

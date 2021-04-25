@@ -1,10 +1,8 @@
-import Nav from '../../components/Nav/Nav'
 import CartItem from '../../components/cartItem/CartItem'
 
 const Cart = () => {
     return (
-        <div className="container px-32 mx-auto">
-            <Nav></Nav>
+        <div className="">
             <div className="flex justify-center">
                 <h1 className="text-3xl font-bold py-12">ตะกร้าของคุณ</h1>
             </div>

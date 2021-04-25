@@ -29,7 +29,7 @@ const Login = () => {
     [login, username, password, history],
   )
   return (
-    <div className="container px-96 bg-gray-200">
+    <div className="">
       <div className="flex justify-center">
         <form onSubmit={handleLogin}>
           <div className="grid grid-cols-12">

@@ -1,10 +1,8 @@
-import Nav from "../../components/Nav/Nav"
 import OrderCard from "../../components/orderCard/orderCard"
 
 function Checkout() {
     return (
-        <div className="container px-32">
-            <Nav />
+        <div className="">
             <div className="flex justify-center">
                 <h2 className="text-3xl font-bold py-12">การจัดส่งสินค้า</h2>
             </div>

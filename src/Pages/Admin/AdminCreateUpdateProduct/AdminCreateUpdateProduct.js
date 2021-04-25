@@ -129,7 +129,7 @@ const AdminProduct = () => {
         alert('Register failed')
       }
     },
-    [createProduct, newProduct, history],
+    [createProduct, newProduct, history, isUpdateProduct, productId, updateProduct],
   )
 
   return (

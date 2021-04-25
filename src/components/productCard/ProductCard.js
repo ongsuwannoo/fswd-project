@@ -10,7 +10,7 @@ function ProductCard(numSpan) {
       <h5 className="px-2 text-2xl"><span className="line-through">฿1250</span> <span className="text-red-500">Save ฿1400</span></h5>
       <div className="flex">
         <button className="bg-white text-black w-full mx-2 py-2 rounded border-2 border-black flex justify-center">
-          <img src={icartadd} className="w-5"/>
+          <img src={icartadd} className="w-5" alt="card"/>
         </button>
         <button className="bg-black text-white w-full mx-2 py-2 rounded">ซื้อทันที</button>
       </div>

@@ -2,7 +2,7 @@ const CartItem = () => {
     return (
         <div className="col-span-12 grid gap-5 grid-cols-12 py-5 border-t border-gray-300">
             <div className="col-span-2">
-                <img src="http://placehold.it/200x200" className="border  border-gray-400" />
+                <img src="http://placehold.it/200x200" alt="item" className="border  border-gray-400" />
             </div>
             <div className="col-span-4">
                 <h4 className="text-xl">lorem</h4>

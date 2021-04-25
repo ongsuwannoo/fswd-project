@@ -16,7 +16,7 @@ function Nav() {
         return (
           <Fragment>
             <div className="col-span-2">
-              <a href="Login">{user?.firstname + user?.lastname}</a>
+              <a href="Login">{user?.firstname + " " + user?.lastname}</a>
             </div>
             <button className="Navbar-logout" type="button" onClick={handleLogout}>Logout</button>
           </Fragment>

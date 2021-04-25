@@ -11,7 +11,7 @@ import { SessionProvider } from './contexts/SessionContext'
 import reportWebVitals from './reportWebVitals';
 import './tailwind.output.css';
 
-const uri = 'http://103.13.231.22:3001/graphql'
+const uri = 'http://localhost:3001/graphql'
 const client = new ApolloClient({
   uri: uri,
   cache: new InMemoryCache({
@@ -19,7 +19,11 @@ const client = new ApolloClient({
   }),
   credentials: 'include',
   link: createUploadLink({
-    uri: uri
+    uri: uri,
+    cache: new InMemoryCache({
+      addTypename: false
+    }),
+    credentials: 'include',
   }),
 })
 

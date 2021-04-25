@@ -4,6 +4,8 @@ import { composeWithMongoose } from 'graphql-compose-mongoose'
 
 const { Schema } = mongoose
 
+const enumRole = ["ADMIN", "CUSTOMER"]
+
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -23,6 +25,12 @@ const UserSchema = new Schema({
     type: String,
     require: true,
     bcrypt: true
+  },
+  role: {
+    type: String,
+    require: true,
+    enum: enumRole,
+    default: "CUSTOMER"
   },
 })
 UserSchema.plugin(bcrypt)

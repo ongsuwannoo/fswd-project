@@ -8,7 +8,7 @@ import AdminProduct from './AdminProduct/AdminProduct';
 import AdminDashboard from './Admin/AdminDashboard';
 
 const Admin = () => {
-    let { path, url } = useRouteMatch();
+    let { path } = useRouteMatch();
     return(
         <div>
             <Switch>

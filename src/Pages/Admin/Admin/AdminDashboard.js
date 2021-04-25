@@ -57,12 +57,12 @@ const AdminDashboard = () => {
             <div class="flex justify-between p-5">
                 <div class="w-1/2 p-5 bg-white rounded shadow-md">
                     <div class="pb-5"><p>Summary</p></div>
-                    <div><img src="https://via.placeholder.com/674x353" className=""></img></div>
+                    <div><img src="https://via.placeholder.com/674x353" className="" alt="Summary"></img></div>
                 </div>
                 <div class="w-1/2 p-5 bg-white rounded shadow-md">
                     <div class="pb-5"><p>Top Selling Products</p></div>
                     <div class="overflow-y-auto">
-                        <div><img src="https://via.placeholder.com/100x100" className=""></img></div>
+                        <div><img src="https://via.placeholder.com/100x100" className="" alt="product"></img></div>
                         <div></div>
                         <div></div>
                     </div>

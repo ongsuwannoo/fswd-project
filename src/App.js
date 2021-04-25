@@ -24,9 +24,13 @@ function App() {
         <div>
           <Suspense fallback="Loading ...">
             <Switch>
+
+              {/* Admin */}
               <Route path="/admin">
                 <AdminHandle />
               </Route>
+
+              {/* Costumer */}
               <div className="container px-32 mx-auto">
                 <Nav />
                 <Route exact path="/">

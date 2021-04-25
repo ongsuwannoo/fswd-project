@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/client'
 
 import { CREATE_USER_MUTATION } from '../../graphql/createUserMutation'
 
-import Nav from '../../components/Nav/Nav'
 const Register = () => {
   const history = useHistory()
   const [newUser, setNewUser] = useState({ firstname: '', lastname: '', username: '', password: '' })

@@ -1,4 +1,3 @@
-import Nav from '../../../components/Nav/Nav'
 import CustomerSide from '../../../components/CustomerSide/CustomerSide'
 const Customer = () => {
     return (

@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Sidebar(){
-    const [email, setEmail] = useState('ongsuwannoo@gmail.com')
-    // const checkEmail = () => {
-    //     console.log(email)
-    //     if(email.length >= 25){
-    //         setEmail(email.substr(0,24) + '.....')
-    //     }
+    const [email, setEmail] = useState('ongsuwannoo78910@gmail.com')
+    const checkEmail = () => {
+        console.log(email)
+        if(email.length >= 25){
+            setEmail(email.substr(0,24) + '.....')
+        }
         
-    // }
-    // checkEmail()
+    }
+    useEffect(() => {
+        checkEmail()
+    })
+    
     return(
         <div id="admin_sidebar" className="bg-indigo-900 text-white">
             <h1 className="font-bold text-2xl py-8 text-center" >Marketry</h1>

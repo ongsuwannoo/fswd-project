@@ -1,10 +1,10 @@
 import Customer from '../Customer/CustomerProfile/customer'
-import CustomerOrder from '../Customer/CustomerOrder/CustomerOrder'
 import {
     Route,
     Switch,
     useRouteMatch
   } from "react-router-dom";
+import CustomerOrderHandle from './CustomerOrder/CustomerOrderHandle';
 
 const CustomerHandle = () => {
     let { path } = useRouteMatch();
@@ -14,8 +14,9 @@ const CustomerHandle = () => {
                 <Customer></Customer>
             </Route>
             <Route path={`${path}/order`}>
-                <CustomerOrder></CustomerOrder>
+                <CustomerOrderHandle />
             </Route>
+            
         </Switch>
     )
 }

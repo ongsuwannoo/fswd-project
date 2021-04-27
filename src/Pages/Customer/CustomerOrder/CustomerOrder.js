@@ -1,9 +1,9 @@
+import { Route, Switch, useRouteMatch } from "react-router"
 import CustomerOrders from "../../../components/CustomerOrders/CustomerOrders"
 import CustomerSide from "../../../components/CustomerSide/CustomerSide"
 
 const CustomerOrder = () =>{
     return(
-        <div className="contanier px-32 mx-auto">
             <div className="grid grid-cols-12 gap-x-16">
                 <CustomerSide></CustomerSide>
                 <div className="col-span-9">
@@ -14,7 +14,7 @@ const CustomerOrder = () =>{
                 </div>
                 
             </div>
-        </div>
+
     )
 }
 export default CustomerOrder;

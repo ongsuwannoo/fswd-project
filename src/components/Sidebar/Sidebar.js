@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Sidebar(){
-    const [email, setEmail] = useState('ongsuwannoo78910@gmail.com')
+    const [email, setEmail] = useState('ongsuwannoo_255556@gmail.com')
     const checkEmail = () => {
         console.log(email)
         if(email.length >= 25){

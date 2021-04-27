@@ -1,8 +1,5 @@
-import { Suspense } from "react"
 import CustomerOrders from "../../../components/CustomerOrders/CustomerOrders"
-import OrderCard from "../../../components/orderCard/orderCard"
 import Sidebar from "../../../components/Sidebar/Sidebar"
-import CustomerOrder from "../../Customer/CustomerOrder/CustomerOrder"
 
 const AdminDashboard = () => {
     return (

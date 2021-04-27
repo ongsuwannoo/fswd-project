@@ -4,7 +4,7 @@ const CustomerOrders = () => {
       <hr></hr>
       <div className="grid grid-cols-12 gap-x-8 py-4">
         <div className="col-span-3">
-          <img src="https://via.placeholder.com/200x200"></img>
+          <img src="https://via.placeholder.com/200x200" alt="change-to-product-name-var"></img>
         </div>
         <div className="col-span-7 flex flex-col justify-between">
           <div>

@@ -1,0 +1,15 @@
+{
+  "SERVER_URL": "http://103.13.231.22:3001/graphql",
+  "ADMIN": {
+    "CREATE_PRODUCT": {
+      "PRODUCT_TYPE": {
+        "select_value": ["shirt", "pants", "skirt", "accessories"],
+        "select_input": ["เสื้อ", "กางเกง", "กระโปรง", "เครื่องประดับ"]
+      },
+      "PRODUCT_COLOR": {
+        "select_value": ["green", "brown", "orange", "red", "biege", "yellow"],
+        "select_input": ["สีเขียว", "สีน้ำตาล", "สีส้ม", "สีแดง", "สีเนื้อ", "สีเหลือง"]
+      }
+    }
+  }
+}

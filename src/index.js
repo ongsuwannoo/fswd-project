@@ -10,8 +10,9 @@ import App from './App';
 import { SessionProvider } from './contexts/SessionContext'
 import reportWebVitals from './reportWebVitals';
 import './tailwind.output.css';
+import configData from "./config.json";
 
-const uri = 'http://103.13.231.22:3001/graphql'
+const uri = configData.SERVER_URL
 const client = new ApolloClient({
   uri: uri,
   cache: new InMemoryCache({

@@ -1,5 +1,5 @@
 {
-  "SERVER_URL": "http://103.13.231.22:3001/graphql",
+  "SERVER_URL": "http://localhost:3001/graphql",
   "SERVER_IMAGE": "http://103.13.231.22:3001/images",
   "ADMIN": {
     "CREATE_PRODUCT": {

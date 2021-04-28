@@ -25,7 +25,6 @@ const PromotionSchema = new Schema({
   products: [
     {
       type: String,
-      ref: 'Product'
     }
   ],
   start_date: {

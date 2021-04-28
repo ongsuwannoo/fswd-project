@@ -17,6 +17,7 @@ const AdminProduct = () => {
 
   useEffect(() => {
     if (data?.products) {
+      console.log(data?.products);
       setProducts(data?.products)
     }
   },
@@ -90,7 +91,18 @@ const AdminProduct = () => {
         )
       }
       return (
-        <tr><td><div className="col-span-2">ยังไม่มีสินค้าในระบบ</div></td></tr>
+        <tr><td colSpan="9">
+          <div className="flex justify-center">
+            <p className="py-4">มีบางอย่างผิดพลาดกรุณาลองใหม่
+              <Link className="ml-1 text-blue-700 underline"
+                to={'/admin/product'}
+                onClick={() => window.location.reload()}
+              >
+                ลองใหม่
+              </Link>
+            </p>
+          </div>
+        </td></tr>
       )
     },
     [loading, products, path],

@@ -99,6 +99,7 @@ const AdminProduct = () => {
 
   // Send state to uploadImage
   const handleReturnImage = (value) => {
+    console.log(value);
     setNewProduct({
       ...newProduct,
       image: value

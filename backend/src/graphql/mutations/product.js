@@ -35,7 +35,7 @@ export const uploadFile = schemaComposer.createResolver({
     );
 
     return {
-      url: `${process.env.SERVER}${randomName}`,
+      url: `${process.env.SERVER}/images/${randomName}`,
     };
   },
 })

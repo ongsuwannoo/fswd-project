@@ -213,7 +213,7 @@ const AdminProduct = () => {
           <UploadForm handleReturnImage={handleReturnImage} images={newProduct.image} />
           {
             newProduct.image?.map((url, i) => {
-              return <img key={i} src={configData.SERVER_URL + url} alt="img" width="100" />
+              return <img key={i} src={configData.SERVER_IMAGE + url} alt="img" width="100" />
             })
           }
           {/* Price */}

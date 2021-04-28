@@ -8,8 +8,8 @@
         "select_input": ["เสื้อ", "กางเกง", "กระโปรง", "เครื่องประดับ"]
       },
       "PRODUCT_COLOR": {
-        "select_value": ["green", "brown", "orange", "red", "biege", "yellow"],
-        "select_input": ["สีเขียว", "สีน้ำตาล", "สีส้ม", "สีแดง", "สีเนื้อ", "สีเหลือง"]
+        "select_value": ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"],
+        "select_input": ["สีฟ้า", "สีเขียว", "สีแดง", "สีส้ม", "สีม่วง", "สีคราม", "สีเหลือง"]
       }
     }
   }

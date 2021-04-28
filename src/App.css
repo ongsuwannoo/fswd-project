@@ -4,7 +4,7 @@ body > h1,h2,h3,h4,h5,h6,p,a,button,select,label,input{
   font-family: 'Kanit', sans-serif !important;
 }
 
-#admin_dashboard{
+#admin_dashboard, #admin_product_table{
   width: calc(100% - 200px) ; 
   margin-left: 200px ;
   min-height: 100vh;

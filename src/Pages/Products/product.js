@@ -13,12 +13,12 @@ function Product() {
             <hr></hr>
 
             {/* Filter */}
-            <div className="flex items-center h-15 p-4 my-2 bg-gray-100 w-full">
-                <h5 className="mx-2 px-5">แสดงตาม</h5>
-                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">ขายดี</button>
-                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">ล่าสุด</button>
-                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">ลดราคา</button>
-                <select className="bg-white text-black mx-2 px-5 rounded border-2 border-black">
+            <div className="flex items-center h-15 p-1 md:p-4 my-2 bg-gray-100 w-full">
+                <h5 className="text-sm md:text-base mx-2 px-0.5 lg:px-5">แสดงตาม</h5>
+                <button className="text-sm md:text-base bg-white text-black mx-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">ขายดี</button>
+                <button className="text-sm md:text-base bg-white text-black mx-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">ล่าสุด</button>
+                <button className="text-sm md:text-base bg-white text-black mx-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">ลดราคา</button>
+                <select className="text-sm md:text-base bg-white text-black x-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">
                     <option>ราคา</option>
                     <option value="mintomax">ราคาน้อยไปมาก</option>
                     <option value="maxtomin">ราคามากไปน้อย</option>
@@ -27,14 +27,14 @@ function Product() {
 
             {/* products */}
             <div className="grid grid-cols-12 my-8">
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
+                <ProductCard span="col-span-6 md:col-span-4 lg:col-span-3 px-4 mt-4" />
             </div>
 
             {/* pagination */}

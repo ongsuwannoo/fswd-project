@@ -33,7 +33,7 @@ function App() {
               </Route>
 
               {/* Costumer */}
-              <div className="container px-32 mx-auto">
+              <div className="container px-2 md:px-16 lg:px-32 mx-auto">
                 <Nav />
                 <Route exact path="/">
                   <Home />

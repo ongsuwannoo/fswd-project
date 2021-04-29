@@ -1,5 +1,11 @@
 import { useSession } from '../../contexts/SessionContext'
 import { Fragment, useMemo } from 'react'
+// import {
+//   Route,
+//   Switch,
+//   useRouteMatch,
+//   Link
+// } from "react-router-dom";
 
 import icart from "../../icon/shopping-cart-solid.svg"
 
@@ -47,19 +53,34 @@ function Nav() {
 
       <div>
         <ul className="grid grid-cols-7 justify-items-center sm:gap-x-0 md:gap-x-2 py-2">
-          <li><a className="text-xs font-light md:text-l hover:text-blue-600" href="/">หน้าแรก</a> </li>
-          <li><a className="text-xs font-light md:text-l hover:text-blue-600" href="/product">สินค้าทั้งหมด</a> </li>
-          <li><a className="text-xs font-light md:text-l hover:text-blue-600" href="/">เสื้อ</a> </li>
-          <li><a className="text-xs font-light md:text-l hover:text-blue-600" href="/"> กางเกง</a></li>
-          <li><a className="text-xs font-light md:text-l hover:text-blue-600" href="/">กระโปรง</a> </li>
-          <li><a className="text-xs font-light md:text-l hover:text-blue-600" href="/">เครื่องประดับ</a> </li>
-          <li><a className="text-xs font-light md:text-l hover:text-blue-600" href="promotions">โปรโมชัน</a></li>
+          <li><a className="text-xs font-light md:text-l md:font-semibold hover:text-blue-600" href="/">หน้าแรก</a> </li>
+          <li><a className="text-xs font-light md:text-l md:font-semibold hover:text-blue-600" href="/product">สินค้าทั้งหมด</a> </li>
+          <li><a className="text-xs font-light md:text-l md:font-semibold hover:text-blue-600" href="/">เสื้อ</a> </li>
+          <li><a className="text-xs font-light md:text-l md:font-semibold hover:text-blue-600" href="/"> กางเกง</a></li>
+          <li><a className="text-xs font-light md:text-l md:font-semibold hover:text-blue-600" href="/">กระโปรง</a> </li>
+          <li><a className="text-xs font-light md:text-l md:font-semibold hover:text-blue-600" href="/">เครื่องประดับ</a> </li>
+          <li><a className="text-xs font-light md:text-l md:font-semibold hover:text-blue-600" href="promotions">โปรโมชัน</a></li>
         </ul>
       </div>
       <hr></hr>
-
     </nav>
   )
-
 }
+
+// const Page = () => {
+//   let { path } = useRouteMatch();
+//   return (
+//     <Switch>
+//       <Route exact path={`${path}`}>
+//         <AdminProduct />
+//       </Route>
+//       <Route path={`${path}/create`}>
+//         <CreateUpdateProduct />
+//       </Route>
+//       <Route path={`${path}/:productId`}>
+//         <CreateUpdateProduct />
+//       </Route>
+//     </Switch>
+//   )
+// }
 export default Nav;

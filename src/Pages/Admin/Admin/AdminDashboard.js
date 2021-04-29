@@ -1,3 +1,4 @@
+import AdminHeader from "../../../components/AdminHeader/AdminHeader"
 import CustomerOrders from "../../../components/CustomerOrders/CustomerOrders"
 import Sidebar from "../../../components/Sidebar/Sidebar"
 
@@ -5,12 +6,8 @@ const AdminDashboard = () => {
     return (
         <div>
 	<div id="admin_dashboard" className="container px-16 mx-auto bg-blue-100">
-		<div className="grid grid-cols-12 gap-x-12">
-			<div id="" className="col-span-12 p-4 bg-white my-8">
-            <div className="items-center flex justify-end">
-            <i class="fas fa-user pr-4 text-2xl"></i><span>Jakkrapat Suwanno</span>
-            </div>
-			</div>
+		<div className="grid grid-cols-12 gap-x-12 gap-y-4">
+			<AdminHeader username="Jakkrapat suwannoo"/>
 			<div className="col-span-3 bg-white p-4">
 				<div class="pb-2 text-blue-500">
 					<svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">

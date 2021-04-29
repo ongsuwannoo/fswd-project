@@ -4,11 +4,11 @@ function Checkout() {
     return (
         <div className="">
             <div className="flex justify-center">
-                <h2 className="text-3xl font-bold py-12">การจัดส่งสินค้า</h2>
+                <h2 className="text-2xl lg:text-3xl font-bold py-4 lg:py-12">การจัดส่งสินค้า</h2>
             </div>
 
             <div className="grid grid-cols-12 gap-x-4 pb-20">
-                <div className="col-span-8">
+                <div className="col-span-12 lg:col-span-8">
                     <hr></hr>
                     <div className="flex items-baseline gap-x-10 py-5">
                         <h3 className="text-xl">ที่อยู่การจัดส่ง</h3>
@@ -62,8 +62,9 @@ function Checkout() {
                         <div className="flex justify-end"><button className="bg-black text-white w-3/4 py-2 rounded mt-3 px-2 ">ชำระเงิน</button></div>
                     </form>
                 </div>
+
                 {/* order summary */}
-                <div className="col-span-4 px-2">
+                <div className="col-span-12 mt-4 lg:col-span-4 px-2 lg:mt-0">
                     <div className="flex justify-between w-full bg-blue-600 p-3">
                         <h4 className="text-xs text-white font-semibold">สรุปคำสั่งซื้อ</h4>
                         <h4 className="text-xs font-light text-gray-100 underline hover:text-black px-2" type="button">แก้ไข</h4>

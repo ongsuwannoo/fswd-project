@@ -10,8 +10,7 @@ mutation ($record: CreateOnePromotionInput!) {
 
 export const PROMOTION_QUERY = gql`
 query ($promotionId: MongoID!) {
-  promotionById (_id: $promotiontId) {
-    _id
+  promotionById (_id: $promotionId) {
     name
     description
     type
@@ -19,6 +18,10 @@ query ($promotionId: MongoID!) {
     start_time
     end_date
     end_time
+    banner
+    buy_get
+    get_buy
+    persent
     active
   }
 }
@@ -39,10 +42,14 @@ query {
     name
     description
     type
+    banner
     start_date
     start_time
     end_date
     end_time
+    buy_get
+    get_buy
+    persent
     active
   }
 }

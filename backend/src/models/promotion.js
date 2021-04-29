@@ -22,11 +22,10 @@ const PromotionSchema = new Schema({
   banner: [
     { type: String }
   ],
-  products: [
-    {
-      type: String,
-    }
-  ],
+  product: {
+    type: String,
+  }
+  ,
   start_date: {
     type: String
   },
@@ -42,9 +41,9 @@ const PromotionSchema = new Schema({
   active: {
     type: Boolean
   },
-  buy_get: { type: String},
-  get_buy: { type: String},
-  persent: { type: String}
+  buy_get: { type: Number, default: 0 },
+  get_buy: { type: Number, default: 0 },
+  persent: { type: Number, default: 0}
 })
 
 const baseOptions = {

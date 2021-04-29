@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import AdminProduct from './AdminProduct/AdminProduct';
 import AdminPromotion from './AdminPromotion/AdminPromotion';
+import AdminOrder from './AdminOrder/AdminOrder';
 import AdminDashboard from './Admin/AdminDashboard';
 
 const Admin = () => {
@@ -21,6 +22,9 @@ const Admin = () => {
         </Route>
         <Route path={`${path}/promotion`}>
           <AdminPromotion />
+        </Route>
+        <Route path={`${path}/order`}>
+          <AdminOrder />
         </Route>
       </Switch>
     </Suspense>

@@ -1,6 +1,7 @@
-import { ProductTC } from '../../models'
+import { ProductTC, UserModel } from '../../models'
 import { schemaComposer } from 'graphql-compose'
 import { GraphQLUpload } from 'apollo-upload-server';
+import { UserInputError } from 'apollo-server-express'
 
 import { generateRandomString } from '../../utils/generateRandomString'
 
@@ -24,7 +25,7 @@ export const uploadFile = schemaComposer.createResolver({
   type: UploadPayload,
   resolve: async ({ args }) => {
     const file = args.file.file
-    const { createReadStream, filename} = await file
+    const { createReadStream, filename } = await file
 
     const { ext } = path.parse(filename)
     const randomName = generateRandomString(12) + ext
@@ -35,10 +36,20 @@ export const uploadFile = schemaComposer.createResolver({
     );
 
     return {
-      url: `${randomName}`,
+      url: `${process.env.SERVER}/images/${randomName}`,
     };
   },
 })
 
-export const createProduct = ProductTC.getResolver('createOne')
-export const updateProductById = ProductTC.getResolver('updateById')
+export const createProduct = ProductTC.getResolver('createOne').wrapResolve(next => async req => {
+  const { _id } = req.context.user
+  const user = await UserModel.findById(_id).exec()
+  if (user.role != "ADMIN") throw new UserInputError(`User '${user.username}' Permission denied`);
+  return next(req)
+})
+export const updateProductById = ProductTC.getResolver('updateById').wrapResolve(next => async req => {
+  const { _id } = req.context.user
+  const user = await UserModel.findById(_id).exec()
+  if (user.role != "ADMIN") throw new UserInputError(`User '${user.username}' Permission denied`);
+  return next(req)
+})

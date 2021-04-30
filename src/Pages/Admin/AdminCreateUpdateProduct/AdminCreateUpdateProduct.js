@@ -12,6 +12,7 @@ import configData from "../../../config.json";
 
 const AdminProduct = () => {
   const CONFIG_CREATE_PRODUCT = configData.ADMIN.CREATE_PRODUCT
+  // Update 
   const { productId } = useParams();
   const isUpdateProduct = true ? productId : false;
 
@@ -28,9 +29,10 @@ const AdminProduct = () => {
   const [nowTag, setNowTag] = useState('');
   const className_input = "shadow appearance-none border rounded w-6/12 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 
+  // Update
   const [getProduct] = useLazyQuery(PRODUCT_QUERY, {
     variables: { productId },
-    onCompleted: async data => {
+    onCompleted: data => {
       setNewProduct(data.productById)
       setNumTeg(data.productById.tag.length)
     }
@@ -214,7 +216,7 @@ const AdminProduct = () => {
           <UploadForm handleReturnImage={handleReturnImage} images={newProduct.image} />
           {
             newProduct.image?.map((url, i) => {
-              return <img key={i} src={configData.SERVER_IMAGE + url} alt="img" width="100" />
+              return <img key={i} src={url} alt="img" width="100" />
             })
           }
           {/* Price */}

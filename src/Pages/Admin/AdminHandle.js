@@ -5,6 +5,8 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import AdminProduct from './AdminProduct/AdminProduct';
+import AdminPromotion from './AdminPromotion/AdminPromotion';
+import AdminOrder from './AdminOrder/AdminOrder';
 import AdminDashboard from './Admin/AdminDashboard';
 import AdminPromotionHandle from './AdminPromotion/AdminPromotionHandle';
 
@@ -20,7 +22,10 @@ const Admin = () => {
           <AdminProduct />
         </Route>
         <Route path={`${path}/promotion`}>
-          <AdminPromotionHandle/>
+          <AdminPromotion />
+        </Route>
+        <Route path={`${path}/order`}>
+          <AdminOrder />
         </Route>
       </Switch>
     </Suspense>

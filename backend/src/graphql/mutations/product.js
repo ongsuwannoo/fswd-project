@@ -48,8 +48,8 @@ export const createProduct = ProductTC.getResolver('createOne').wrapResolve(next
   return next(req)
 })
 export const updateProductById = ProductTC.getResolver('updateById').wrapResolve(next => async req => {
+  console.log(req.context.user);
   const { _id } = req.context.user
-  console.log(_id);
   const user = await UserModel.findById(_id).exec()
   if (user.role != "ADMIN") throw new UserInputError(`User '${user.username}' Permission denied`);
   return next(req)

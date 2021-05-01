@@ -1,8 +1,58 @@
+import { useLazyQuery } from '@apollo/client';
+import { useEffect, useMemo, useState } from 'react';
+import { Route, Switch, useRouteMatch } from 'react-router';
+import Loading from '../../components/Loading/Loading';
 import ProductCard from '../../components/productCard/ProductCard'
+import { PRODUCT_QUERY_ALL } from '../../graphql/Product';
 
 import inext from "../../icon/chevron-right-solid.svg"
+import ProductDetail from './ProductsDetail/productSlug';
 
 function Product() {
+    const {path} = useRouteMatch()
+    const [products, setProducts] = useState();
+    const [getProduct, { loading, data }] = useLazyQuery(PRODUCT_QUERY_ALL);
+
+  useEffect(() => {
+    if (data?.products) {
+      console.log(data?.products);
+      setProducts(data?.products);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        await getProduct();
+      } catch (err) {
+        console.log("error get product");
+      }
+    };
+    loadData();
+  }, [getProduct]);
+
+  const onError = (e) => {
+    e.target.src = "https://via.placeholder.com/100x100";
+  };
+
+  const productCards = useMemo(() => {
+    if (loading) {
+      return (
+        <tr>
+          <td>
+            <Loading />
+          </td>
+        </tr>
+      );
+    }
+    if (products) {
+      return products?.map((product, i) => {
+        return (
+          <ProductCard numSpan="col-span-3 px-4 mt-4" data={product} key={i} />
+        );
+      });
+    }
+  }, [loading, products]);
     return (
         <div className="">
             <div className="flex justify-left item-center gap-x-2 h-10 py-2 px-2 font-light">
@@ -27,14 +77,7 @@ function Product() {
 
             {/* products */}
             <div className="grid grid-cols-12 my-8">
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
-                <ProductCard span="col-span-3 px-4 mt-4" />
+                {productCards}
             </div>
 
             {/* pagination */}

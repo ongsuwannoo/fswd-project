@@ -8,9 +8,8 @@ import Footer from "./components/Footer/Footer"
 const Register = React.lazy(() => import('./Pages/Register/Register'))
 const Home = React.lazy(() => import('./Pages/Home/Home'))
 const Login = React.lazy(() => import('./Pages/Login/Login'))
-const OrderDetail = React.lazy(() => import('./Pages/OrderDetail/orderId'))
 const AdminHandle = React.lazy(() => import('./Pages/Admin/AdminHandle'))
-const Product = React.lazy(() => import('./Pages/Products/product'))
+const ProductHandle = React.lazy(() => import('./Pages/Products/ProductHandle'))
 const Promotions = React.lazy(() => import('./Pages/Promotions/promotions'))
 const Cart = React.lazy(() => import('./Pages/Cart/cart'))
 const Customer = React.lazy(() => import('./Pages/Customer/CustomerHandle'))
@@ -31,7 +30,6 @@ function App() {
               <Route path="/admin">
                 <AdminHandle />
               </Route>
-
               {/* Costumer */}
               <div className="container px-32 mx-auto">
                 <Nav />
@@ -44,11 +42,8 @@ function App() {
                 <Route path="/login">
                   <Login />
                 </Route>
-                <Route path="/product/:productSlug">
-                  <OrderDetail />
-                </Route>
                 <Route path="/product">
-                  <Product />
+                  <ProductHandle />
                 </Route>
                 <Route path="/promotions">
                   <Promotions />

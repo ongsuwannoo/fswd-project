@@ -27,7 +27,7 @@ const CustomerOrderDetail = () => {
                         </div>
                     </div>
                     {/* orderstatus */}
-                    <OrderStatus status={false} />
+                    <OrderStatus status={true} />
                 {/* address and product under order */}
                 <div className="col-span-5">
                     <h3 className="text-xl lg:text-3xl">ที่อยู่ในการจัดส่ง</h3>
@@ -39,7 +39,7 @@ const CustomerOrderDetail = () => {
                 </div>
                 <div className="col-span-7"></div>
                 <div className="col-span-12">
-                    <CustomerOrders status={false} />
+                    <CustomerOrders status={true} />
                 </div>
             </div>
         </div>

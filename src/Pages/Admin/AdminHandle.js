@@ -8,6 +8,7 @@ import AdminProduct from './AdminProduct/AdminProduct';
 import AdminPromotion from './AdminPromotion/AdminPromotion';
 import AdminOrder from './AdminOrder/AdminOrder';
 import AdminDashboard from './Admin/AdminDashboard';
+import AdminPromotionHandle from './AdminPromotion/AdminPromotionHandle';
 
 const Admin = () => {
   let { path } = useRouteMatch();

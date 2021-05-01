@@ -11,6 +11,10 @@
         "select_value": ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"],
         "select_input": ["สีฟ้า", "สีเขียว", "สีแดง", "สีส้ม", "สีม่วง", "สีคราม", "สีเหลือง"]
       }
+    },
+    "ORDER_STATUS": {
+      "status": ["Shipped", "Delivered", "Refunded", "Canceled"],
+      "color": [""]
     }
   }
 }

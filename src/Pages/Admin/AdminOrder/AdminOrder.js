@@ -5,7 +5,7 @@ import {
   useRouteMatch,
   Link
 } from "react-router-dom";
-// import CreateUpdateProduct from '../AdminCreateUpdateProduct/AdminCreateUpdateProduct';
+import UpdateOrder from '../AdminOrderUpdate/AdminOrderUpdate';
 import { ORDER_QUERY_ALL } from '../../../graphql/Order'
 import { useLazyQuery } from '@apollo/client'
 import Loading from '../../../components/Loading/Loading'
@@ -119,12 +119,9 @@ const Admin = () => {
       <Route exact path={`${path}`}>
         <AdminOrder />
       </Route>
-      {/* <Route path={`${path}/create`}>
-        <CreateUpdateProduct />
-      </Route>
       <Route path={`${path}/:orderId`}>
-        <CreateUpdateProduct />
-      </Route> */}
+        <UpdateOrder />
+      </Route>
     </Switch>
   )
 }

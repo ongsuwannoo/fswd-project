@@ -32,7 +32,14 @@ const OrderSchema = new Schema({
     postal_code: { type: String },
     phone: { type: String },
   },
-  date: { type: Date, default: Date.now },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  payment_method: {
+    type: String,
+    default: "Pay On Delivery"
+  },
 })
 
 export const OrderModel = mongoose.model('Order', OrderSchema)

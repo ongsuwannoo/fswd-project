@@ -2,22 +2,26 @@ import { useLazyQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ProductCard from "../../../components/productCard/ProductCard";
+import Loading from '../../../components/Loading/Loading'
 import { PRODUCT_QUERY } from "../../../graphql/Product";
 
 function ProductDetail(props) {
-  const {productId} = useParams()
-  const {product, setNewProduct} = useState()
-  const [getProduct] = useLazyQuery(PRODUCT_QUERY, {
+  const { productId } = useParams()
+  const [product, setNewProduct] = useState({})
+  const [getProduct, { loading }] = useLazyQuery(PRODUCT_QUERY, {
     variables: { productId },
     onCompleted: data => {
       setNewProduct(data.productById)
     }
   });
-  useEffect(()=>{
-    console.log(product)
-  })
+  useEffect(() => {
+    getProduct()
+  }, [getProduct]);
+
+  console.log(product.name);
   return (
     <div className="">
+      {loading ? <Loading /> : ''}
       <div className="grid grid-cols-12 mt-16">
         <div className="col-span-1 px-4 flex flex-col justify-center items-center">
           <img

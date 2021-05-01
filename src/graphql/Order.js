@@ -11,8 +11,13 @@ mutation ($record: CreateOneOrderInput!) {
 export const ORDER_QUERY = gql`
 query ($orderId: MongoID!) {
   orderById (_id: $orderId) {
-    name
-
+    _id
+    order_id
+    customer_id
+    price
+    status
+    date
+    payment_method
   }
 }
 `
@@ -34,6 +39,8 @@ query {
     price
     status
     date
+    payment_method
+    
   }
 }
 `

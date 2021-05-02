@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import ProductCard from "../../../components/productCard/ProductCard";
 import Loading from '../../../components/Loading/Loading'
 import { PRODUCT_QUERY } from "../../../graphql/Product";
+import icartadd from "../../../icon/cart-plus-solid.svg";
 
 function ProductDetail(props) {
   const { productId } = useParams()
@@ -43,7 +44,7 @@ function ProductDetail(props) {
         <div className="col-span-5 px-4">
           <div className="grid grid-cols-12">
             <div className="col-span-2 flex justify-center items-center">
-              <p className="">arrow</p>
+            <i class="fas fa-chevron-left"></i>
             </div>
             <img
               src="https://via.placeholder.com/608x800"
@@ -51,7 +52,7 @@ function ProductDetail(props) {
               alt="showing"
             ></img>
             <div className="col-span-2 flex justify-center items-center">
-              <p className="">arrow</p>
+            <i class="fas fa-chevron-right"></i>
             </div>
           </div>
         </div>
@@ -69,10 +70,10 @@ function ProductDetail(props) {
                 name=""
                 id=""
               ></input>
-              <button className="col-span-4 py-1 mx-2 bg-white text-black border border-black">
-                cart
+              <button className="col-span-4 bg-white text-black mx-2 py-2 rounded border-2 border-black flex justify-center">
+              <img src={icartadd} className="w-5" alt="card"/>
               </button>
-              <button className="col-span-4 py-1 mx-2 bg-black text-white border border-black">
+              <button className="col-span-4 py-1 mx-2 bg-black text-white rounded border-2 border-black">
                 ซื้อทันที
               </button>
             </div>
@@ -100,13 +101,14 @@ function ProductDetail(props) {
       <h2 className="text-3xl uppercase pt-16">other also bought</h2>
       <div className="grid grid-cols-12">
         <div className="flex justify-center items-center col-span-1">
-          <p>arrow</p>
+        <i class="fas fa-chevron-left"></i>
         </div>
         <div className="col-span-10 grid grid-cols-12">
           <ProductCard numSpan="col-span-6 px-8 my-4" />
+          <ProductCard numSpan="col-span-6 px-8 my-4" />
         </div>
         <div className="flex justify-center items-center col-span-1">
-          <p>arrow</p>
+        <i class="fas fa-chevron-right"></i>
         </div>
       </div>
     </div>

@@ -110,7 +110,7 @@ const AdminPromotion = () => {
 
   return (
     <div>
-    <div id="admin_dashboard" className="container px-16 mx-auto bg-blue-50">
+    <div id="admin_dashboard" className="container px-16 mx-auto bg-blue-100">
       <div className="grid grid-cols-12 gap-y-4">
         <AdminHeader username="New eng jaa" />
     <div className="bg-blue-200 col-span-12  rounded shadow-md">

@@ -53,22 +53,22 @@ const AdminOrder = () => {
           orders?.map((order, i) => {
             return (
               <tr key={i} className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                <td className="w-full lg:w-auto p-3 text-gray-900 text-center border border-b border-gray-900 block lg:table-cell relative lg:static">
                   {order.order_id}
                 </td>
-                <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td className="w-full lg:w-auto p-3 text-gray-900 text-center border border-b border-gray-900 text-center block lg:table-cell relative lg:static">
                   {"ongsuwannoo"}
                 </td>
-                <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td className="w-full lg:w-auto p-3 text-gray-900 text-center border border-b border-gray-900 text-center block lg:table-cell relative lg:static">
                   {formatDate(order.date)}
                 </td>
-                <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td className="w-full lg:w-auto p-3 text-gray-900 text-center border border-b border-gray-900 text-center block lg:table-cell relative lg:static">
                   {order.price}
                 </td>
-                <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td className="w-full lg:w-auto p-3 text-gray-900 text-center border border-b border-gray-900 text-center block lg:table-cell relative lg:static">
                   <span className="rounded bg-green-400 py-1 px-3 text-xs font-bold">{order.status}</span>
                 </td>
-                <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td className="w-full lg:w-auto p-3 text-gray-900 text-center border border-b border-gray-900 text-center block lg:table-cell relative lg:static">
                   <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
                   <Link to={`${path}/${order._id}`} className="text-blue-400 hover:text-blue-600 underline" >Edit</Link>
                   {/* <a href="#" className="text-blue-400 hover:text-blue-600 underline pl-6">Remove</a> */}
@@ -97,18 +97,18 @@ const AdminOrder = () => {
   )
   return (
     <div>
-      <div id="admin_dashboard" className="container px-16 mx-auto bg-blue-50">
+      <div id="admin_dashboard" className="container px-16 mx-auto bg-blue-100">
       <div className="grid grid-cols-12 gap-y-4">
           <AdminHeader username="New eng jaa" />
         <table className="border-collapse col-span-12 rounded shadow-md">
           <thead>
             <tr>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Order ID</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Customer</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Order Data</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Price</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
+              <th className="p-3 font-bold uppercase bg-gray-900 text-white border border-gray-300 hidden lg:table-cell">Order ID</th>
+              <th className="p-3 font-bold uppercase bg-gray-900 text-white border border-gray-300 hidden lg:table-cell">Customer</th>
+              <th className="p-3 font-bold uppercase bg-gray-900 text-white border border-gray-300 hidden lg:table-cell">Order Data</th>
+              <th className="p-3 font-bold uppercase bg-gray-900 text-white border border-gray-300 hidden lg:table-cell">Price</th>
+              <th className="p-3 font-bold uppercase bg-gray-900 text-white border border-gray-300 hidden lg:table-cell">Status</th>
+              <th className="p-3 font-bold uppercase bg-gray-900 text-white border border-gray-300 hidden lg:table-cell">Action</th>
             </tr>
           </thead>
           <tbody>

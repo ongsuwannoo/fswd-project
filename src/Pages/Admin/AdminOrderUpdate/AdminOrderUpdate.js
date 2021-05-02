@@ -78,7 +78,7 @@ const AdminPromotion = () => {
   )
 
   return (
-    <div className="bg-gray-50 h-screen">
+    <div className="bg-gray-100 h-screen">
       <div className="container px-16 flex pt-8 justify-between">
         <div className="flex flex-col">
           <h1 className="text-yellow-500 text-3xl">Update Promotion</h1>

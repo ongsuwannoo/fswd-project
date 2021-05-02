@@ -9,7 +9,6 @@ function Home(){
   const [products, setProducts] = useState();
   const [getProduct, { loading, data }] = useLazyQuery(PRODUCT_QUERY_ALL);
   const {path} = useRouteMatch();
-
   useEffect(() => {
     if (data?.products) {
       console.log(data?.products);

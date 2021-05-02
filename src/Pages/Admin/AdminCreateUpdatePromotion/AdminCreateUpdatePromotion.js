@@ -7,6 +7,8 @@ import { PRODUCT_QUERY_ALL } from '../../../graphql/Product'
 
 import { isNumeric } from '../../../utils/isNumeric'
 import { UploadForm } from '../../../components/UploadForm/UploadForm'
+import Sidebar from "../../../components/Sidebar/Sidebar"
+import AdminHeader from "../../../components/AdminHeader/AdminHeader";
 
 // import configData from "../../../config.json";
 
@@ -107,7 +109,11 @@ const AdminPromotion = () => {
   )
 
   return (
-    <div className="bg-blue-200">
+    <div>
+    <div id="admin_dashboard" className="container px-16 mx-auto bg-blue-50">
+      <div className="grid grid-cols-12 gap-y-4">
+        <AdminHeader username="New eng jaa" />
+    <div className="bg-blue-200 col-span-12  rounded shadow-md">
       <div className="container bg-gray-50 px-16 ">
         {
           isUpdatePromotion
@@ -197,6 +203,10 @@ const AdminPromotion = () => {
           </button>
         </form>
       </div>
+    </div>
+    </div>
+    </div>
+    <Sidebar/>
     </div>
   )
 }

@@ -9,6 +9,8 @@ import AdminCreateUpdatePromotion from '../AdminCreateUpdatePromotion/AdminCreat
 import { PROMOTION_QUERY_ALL } from '../../../graphql/Promotion'
 import { useLazyQuery } from '@apollo/client'
 import Loading from '../../../components/Loading/Loading'
+import Sidebar from "../../../components/Sidebar/Sidebar"
+import AdminHeader from "../../../components/AdminHeader/AdminHeader";
 
 const AdminPromotion = () => {
   let { path } = useRouteMatch();
@@ -99,21 +101,29 @@ const AdminPromotion = () => {
     [loading, promotions, path],
   )
   return (
-    <table className="border-collapse w-full">
-      <thead>
-        <tr>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Name</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Start</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">End</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Type</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {promotionBox}
-      </tbody>
-    </table>
+    <div>
+      <div id="admin_dashboard" className="container px-16 mx-auto bg-blue-50">
+        <div className="grid grid-cols-12 gap-y-4">
+          <AdminHeader username="New eng jaa" />
+          <table className="border-collapse col-span-12">
+            <thead>
+              <tr>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Name</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Start</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">End</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Type</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {promotionBox}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <Sidebar />
+    </div>
   )
 }
 

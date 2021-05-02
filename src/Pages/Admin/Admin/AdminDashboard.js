@@ -43,7 +43,7 @@ const AdminDashboard = () => {
 					</div>
 				</div>
 
-
+		<Sidebar/>
 			</div>
 		</div>
 	);

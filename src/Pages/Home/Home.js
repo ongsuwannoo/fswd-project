@@ -79,7 +79,7 @@ function Home(){
         {limit>0
         ? <div className="cursor-pointer" onClick={()=> setLimit(limit-32)}><i className="fas fa-chevron-left"></i></div>
       :<></>}
-          <div className="px-4">{(limit/32)+1}</div>
+          <div className="px-4">Page {(limit/32)+1}</div>
           <div className="cursor-pointer" onClick={()=> setLimit(limit+32)}><i className="fas fa-chevron-right"></i></div>
         </div>
       </div> 

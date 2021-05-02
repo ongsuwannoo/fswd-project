@@ -62,7 +62,7 @@ function App() {
                 </Route>
                 <Footer />
               </div>
-
+              
             </Switch>
           </Suspense>
           

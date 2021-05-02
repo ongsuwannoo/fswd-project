@@ -1,23 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;600;700&display=swap");
 
-<<<<<<< HEAD
-body > h1,h2,h3,h4,h5,h6,p,a,button,select,label,input,span {
-  font-family: "Kanit", sans-serif !important;
-=======
 body > h1,h2,h3,h4,h5,h6,p,a,button,select,label,input,span{
   font-family: 'Kanit', sans-serif !important;
->>>>>>> cec60ad1039894e047d390fc69e185dffabfac88
 }
 
-<<<<<<< HEAD
-#admin_dashboard,
-#admin_product_table {
-  width: calc(100% - 10vw);
-=======
 #admin_dashboard, #admin_product_table, #admin_promotion{
   width: calc(100% - 200px) ; 
   margin-left: 200px ;
->>>>>>> main
   min-height: 100vh;
 }
 @media (max-width: 768px) {

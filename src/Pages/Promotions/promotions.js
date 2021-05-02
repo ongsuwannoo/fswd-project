@@ -14,15 +14,15 @@ function Promotions() {
 
             {/* Filter */}
             <div className="flex items-center h-15 p-4 my-2 px-2 bg-gray-100 w-full">
-                <h5 className="mx-2 px-5">แสดงตาม</h5>
-                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">1 แถม 1</button>
-                <button className="bg-white text-black mx-2 px-5 rounded border-2 border-black">ล่าสุด</button>
-                <select className="bg-white text-black mx-2 px-5 rounded border-2 border-black">
+                <h5 className="text-sm md:text-base mx-2 px-0.5 lg:px-5">แสดงตาม</h5>
+                <button className="text-xs md:text-base bg-white text-black mx-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">1 แถม 1</button>
+                <button className="text-xs md:text-base bg-white text-black mx-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">ล่าสุด</button>
+                <select className="text-xs md:text-base bg-white text-black mx-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">
                     <option>ลดราคา</option>
                     <option value="mintomax">ลดราคาน้อยไปมาก</option>
                     <option value="maxtomin">ลดราคามากไปน้อย</option>
                 </select>
-                <select className="bg-white text-black mx-2 px-5 rounded border-2 border-black">
+                <select className="text-xs md:text-base bg-white text-black mx-2 px-0.5 lg:px-5 rounded border md:border-2 border-black">
                     <option>ประเภท</option>
                     <option value="">เสื้อ</option>
                     <option value="">กางเกง</option>

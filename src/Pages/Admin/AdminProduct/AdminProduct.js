@@ -111,40 +111,40 @@ const AdminProduct = () => {
   )
   return (
     <div>
-      <div id="admin_product_table" className="container px-16 mx-auto bg-blue-100">
+      <div id="admin_product_table" className="container px-16 mx-auto bg-blue-50">
         <div className="grid grid-cols-12 gap-y-4">
-          <AdminHeader username="New eng jaa"/>
-          <div className="col-span-2">
-            <select className="px-4 py-2">
+          <AdminHeader username="New eng jaa" />
+          <div className="col-span-2 ">
+            <select className="px-4 py-2 shadow-md rounded">
               <option>สินค้าทั้งหมด</option>
             </select>
           </div>
           <div className="col-span-2">
-          <Link to={`${path}/create`}>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded"><i class="fas fa-plus-circle"></i> Add product</button>
-          </Link>
+            <Link to={`${path}/create`}>
+              <button className="bg-blue-600 text-white px-4 py-2 shadow-md rounded"><i class="fas fa-plus-circle"></i> Add product</button>
+            </Link>
           </div>
-            <table  className="border-collapse w-full mx-auto col-span-12">
-          <thead>
-            <tr>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Product ID</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Image</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Name</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Tag</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Stock</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Sold</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Price</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {productBox}
-          </tbody>
-        </table>
+          <table className="border-collapse w-full mx-auto col-span-12">
+            <thead>
+              <tr>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Product ID</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Image</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Name</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Tag</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Stock</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Sold</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Price</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {productBox}
+            </tbody>
+          </table>
         </div>
       </div>
-    <Sidebar></Sidebar>
+      <Sidebar></Sidebar>
     </div>
   )
 }

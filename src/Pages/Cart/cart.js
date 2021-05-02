@@ -4,29 +4,29 @@ const Cart = () => {
     return (
         <div className="">
             <div className="flex justify-center">
-                <h1 className="text-3xl font-bold py-12">ตะกร้าของคุณ</h1>
+                <h2 className="text-2xl lg:text-3xl font-bold py-4 lg:py-12">ตะกร้าของคุณ</h2>
             </div>
             <div>
                 {/* table header */}
                 <div className="grid grid-cols-12 gap-x-4">
-                    <div className="col-span-9">
-                        <div className=" grid grid-cols-12">
+                    <div className="col-span-12 lg:col-span-9">
+                        <div className="grid grid-cols-12">
                             <div className="col-span-6 py-4">
                                 <p>สินค้า</p>
                             </div>
-                            <div className="col-span-2 text py-4 text-center ">
+                            <div className="hidden lg:block col-span-2 text py-4 text-center ">
                                 <p>ราคาต่อชิ้น</p>
                             </div>
-                            <div className="col-span-2 text py-4 text-center ">
+                            <div className="hidden lg:block col-span-2 text py-4 text-center ">
                                 <p>จำนวน</p>
                             </div>
-                            <div className="col-span-2 text py-4 text-center ">
+                            <div className="hidden lg:block col-span-2 text py-4 text-center ">
                                 <p>ราคารวม</p>
                             </div>
                         </div>
                         <CartItem />
                     </div>
-                    <div className="col-span-3 border border-black flex flex-col justify-center">
+                    <div className="col-span-12 lg:col-span-3 border border-black flex flex-col justify-center">
                         <div className="flex justify-between px-4 py-2">
                             <p>2 ชิ้น</p>
                             <p>฿1,100</p>

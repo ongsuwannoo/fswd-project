@@ -7,11 +7,11 @@ function Payment() {
     return (
         <div className="">
             <div className="flex justify-center">
-                <h2 className="text-3xl font-bold py-12">การชำระเงิน</h2>
+                <h2 className="text-2xl lg:text-3xl font-bold py-4 lg:py-12">การชำระเงิน</h2>
             </div>
 
             <div className="grid grid-cols-12 gap-x-4 pb-20">
-                <div className="col-span-8">
+                <div className="col-span-12 lg:col-span-8">
                     <hr></hr>
                     <div className="py-5">
                         <h3 className="text-xl">เลือกวิธีการชำระเงิน</h3>
@@ -44,8 +44,9 @@ function Payment() {
                         </div>
                     </div>
                 </div>
+
                 {/*order summary*/}
-                <div className="col-span-4 px-2">
+                <div className="col-span-12 lg:col-span-4 px-2">
                     <div className="flex justify-between w-full bg-blue-600 p-3">
                         <h4 className="text-xs text-white font-semibold">ที่อยู่</h4>
                         <h4 className="text-xs font-light text-gray-100 underline hover:text-black px-2" type="button">แก้ไข</h4>

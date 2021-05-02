@@ -31,7 +31,6 @@ const ProductSchema = new Schema({
   color: {
     type: String,
     required: true,
-    enum: enumProductColor,
   },
   size: {
     type: String,

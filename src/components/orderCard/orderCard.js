@@ -1,8 +1,17 @@
+import { useEffect, useState } from "react"
+
 function OrderCard(props) {
+    const [image, setImage] = useState([])
+
+useEffect(()=>{
+  setImage(props.data.image)
+  console.log(props.data.image)
+},[setImage])
     return (
         <div className="p-1">
             <div className="flex">
-                <img src="https://via.placeholder.com/100x100" alt="productCart"></img>
+            <div id="image_product" className="col-span-8 image_product_order" alt="showing" style={{ '--img': `url(${image})` }}>
+              </div>
                 <div className="pl-3">
                     <h3 className="text-s">{props.data.name}</h3>
                     {console.log(props.data)}

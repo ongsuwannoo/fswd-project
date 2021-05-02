@@ -53,6 +53,15 @@ body > h1,h2,h3,h4,h5,h6,p,a,button,select,label,input,span{
   background-repeat: no-repeat;
   background-position: center;
 }
+.image_product_order{
+  width: 100%;
+  padding-top: 0%;
+  background: #fff;
+  background-image: var(--img);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .pd-d {
   height: 3em;
   overflow: hidden;

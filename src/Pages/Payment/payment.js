@@ -56,8 +56,8 @@ function Payment() {
                         {/* Pay On Delivery */}
                         <div className="flex gap-x-5 items-center w-11/12 h-24 border border-gray-200 mt-5">
                             <img src={ipayondelivery} alt="PayOnDeliveryIcon" className="h-24 w-24 p-5 border border-gray-200"></img>
-                            <input type="radio"></input>
-                            <label className="text-xl">Pay On Delivery</label>
+                            <label className="text-xl"><input type="radio" className=""></input>Pay On Delivery</label>
+                            
                         </div>
                         <div className="flex justify-end w-11/12 h-20 p-5 bg-gray-200">
                             <label className="bg-black text-white w-1/3 py-2 rounded px-2 text-center">
@@ -67,21 +67,21 @@ function Payment() {
                             </label>
                         </div>
                         {/* Credit Card */}
-                        <div className="flex gap-x-5 items-center w-11/12 h-24 border border-gray-200 mt-5 bg-gray-200">
+                        <div className="flex gap-x-5 items-center w-11/12 h-24 border border-gray-200 mt-5 bg-gray-200 opacity-20">
                             <img src={icreditcard} alt="PayOnDeliveryIcon" className="h-24 w-24 p-5 border border-gray-200"></img>
                             <input type="radio" disabled></input>
                             <label className="text-xl">Credit Card</label>
                         </div>
-                        <div className="flex justify-end w-11/12 h-20 p-5 bg-gray-200">
+                        <div className="flex justify-end w-11/12 h-20 p-5 bg-gray-200 opacity-20">
                             <button className="bg-black text-white w-1/3 py-2 rounded px-2 cursor-not-allowed" >ชำระเงิน</button>
                         </div>
                         {/* Paypal */}
-                        <div className="flex gap-x-5 items-center w-11/12 h-24 border border-gray-200 mt-5 bg-gray-200">
+                        <div className="flex gap-x-5 items-center w-11/12 h-24 border border-gray-200 mt-5 bg-gray-200 opacity-20">
                             <img src={ipaypal} alt="PayOnDeliveryIcon" className="h-24 w-24 p-5 border border-gray-200"></img>
                             <input type="radio" disabled></input>
                             <label className="text-xl">Paypal</label>
                         </div>
-                        <div className="flex justify-end w-11/12 h-20 p-5 bg-gray-200">
+                        <div className="flex justify-end w-11/12 h-20 p-5 bg-gray-200 opacity-20">
                             <button className="bg-black text-white w-1/3 py-2 rounded px-2 cursor-not-allowed">ชำระเงิน</button>
                         </div>
                     </div>

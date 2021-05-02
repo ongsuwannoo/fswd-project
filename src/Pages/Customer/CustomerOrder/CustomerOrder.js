@@ -9,8 +9,7 @@ const CustomerOrder = () =>{
                 <div className="col-span-9">
                     <h1 className="font-bold text-xl lg:text-3xl py-8">รายการสั่งซื้อของฉัน</h1>
                     <CustomerOrders />
-                    <CustomerOrders />
-                    <CustomerOrders />
+
                 </div>
                 
             </div>

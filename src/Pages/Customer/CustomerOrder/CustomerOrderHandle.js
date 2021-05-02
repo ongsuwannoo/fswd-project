@@ -10,7 +10,7 @@ const CustomerOrderHandle = () => {
         <Route exact path={`${path}`}>
             <CustomerOrder></CustomerOrder>
         </Route>
-        <Route path={`${path}/detail`}>
+        <Route path={`${path}/detail/:orderId`}>
             <CustomerOrderDetail></CustomerOrderDetail>
         </Route>
         

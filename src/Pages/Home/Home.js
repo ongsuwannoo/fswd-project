@@ -9,6 +9,9 @@ function Home(){
   const [products, setProducts] = useState();
   const [getProduct, { loading, data }] = useLazyQuery(PRODUCT_QUERY_ALL);
   const {path} = useRouteMatch();
+  const [limit, setLimit] = useState(0)
+  const [skip, setSkip] = useState(0)
+
   useEffect(() => {
     if (data?.products) {
       console.log(data?.products);
@@ -70,6 +73,14 @@ function Home(){
         {/* products */}
         <div className="grid grid-cols-12 my-8">
           {productCards}
+        </div>
+
+        <div className="flex justify-center ">
+        {limit>0
+        ? <div className="cursor-pointer" onClick={()=> setLimit(limit-32)}><i className="fas fa-chevron-left"></i></div>
+      :<></>}
+          <div className="px-4">Page {(limit/32)+1}</div>
+          <div className="cursor-pointer" onClick={()=> setLimit(limit+32)}><i className="fas fa-chevron-right"></i></div>
         </div>
       </div> 
     );

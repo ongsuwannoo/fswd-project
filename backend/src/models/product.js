@@ -32,10 +32,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
-  size: {
+  size: [{
     type: String,
     required: true,
-  },
+  }],
   tag: [
     { type: String }
   ],

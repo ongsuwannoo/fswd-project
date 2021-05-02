@@ -54,10 +54,10 @@ function App() {
                 <Route path="/customer">
                   <Customer />
                 </Route>
-                <Route path="/checkout">
+                <Route path="/checkout/:productId">
                   <Checkout />
                 </Route>
-                <Route path="/payment">
+                <Route path="/payment/:productId">
                   <Payment />
                 </Route>
                 <Footer />

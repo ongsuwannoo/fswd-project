@@ -1,6 +1,41 @@
+import { useLazyQuery } from "@apollo/client";
+import { useEffect, useMemo, useState } from "react";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Loading from "../../components/Loading/Loading";
 import OrderCard from "../../components/orderCard/orderCard"
+import { PRODUCT_QUERY } from "../../graphql/Product";
 
 function Checkout() {
+    const { productId } = useParams()
+    const [product, setNewProduct] = useState({})
+    const [getProduct, { loading }] = useLazyQuery(PRODUCT_QUERY, {
+        variables: { productId },
+        onCompleted: data => {
+            setNewProduct(data.productById)
+        }
+    });
+    useEffect(() => {
+        getProduct()
+    }, [getProduct,productId,product]);
+
+
+    const productSummary = useMemo(() => {
+        if (loading) {
+          return (
+            <tr>
+              <td>
+                <Loading />
+              </td>
+            </tr>
+          );
+        }
+        if (product) {
+          return(
+            console.log(product.name)
+          )
+        }
+      }, [loading, product]);
     return (
         <div className="">
             <div className="flex justify-center">
@@ -59,7 +94,14 @@ function Checkout() {
                         </div>
                         <div></div>
                         <div></div>
-                        <div className="flex justify-end"><button className="bg-black text-white w-3/4 py-2 rounded mt-3 px-2 ">ชำระเงิน</button></div>
+                        <div className="flex justify-end">
+                            <label className="bg-black text-white w-full py-2 rounded mt-3 px-2 ">
+                                <Link to={`/payment/${productId}`}  onClick={()=>{window.location.href=`/payment/${productId}`}}>
+                                    <button>ชำระเงิน</button>
+                                </Link>
+                            </label>
+                        
+                        </div>
                     </form>
                 </div>
 
@@ -70,21 +112,19 @@ function Checkout() {
                         <h4 className="text-xs font-light text-gray-100 underline hover:text-black px-2" type="button">แก้ไข</h4>
                     </div>
                     <div className="overflow-auto h-64 border border-gray-200 p-3">
-                        <OrderCard />
-                        <OrderCard />
-                        <OrderCard />
+                        <OrderCard data={product}/>
                     </div>
                     <div className="flex justify-between w-full bg-blue-600 p-3">
                         <h4 className="text-xs text-white font-semibold">สรุปยอดชำระเงิน</h4>
                     </div>
                     <div className="grid grid-cols-2 border border-gray-200 p-3">
                         <h6 className="text-xs font-semibold">ยอดรวม</h6>
-                        <h6 className="text-xs font-semibold text-right">฿1,100</h6>
+                        <h6 className="text-xs font-semibold text-right">฿{product.price}</h6>
                         <h6 className="text-xs font-light pt-3">การจัดส่ง</h6>
                         <h6 className="text-xs font-light pt-3 text-right text-green-700">ฟรี</h6>
                         <div className="col-span-2 py-3"><hr></hr></div>
                         <h6 className="text-s font-semibold">ยอดชำระสุทธิ</h6>
-                        <h6 className="text-s font-semibold text-blue-600 text-right">฿1,100</h6>
+                        <h6 className="text-s font-semibold text-blue-600 text-right">฿{product.price}</h6>
                     </div>
                 </div>
             </div>

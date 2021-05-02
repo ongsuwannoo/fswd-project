@@ -1,6 +1,11 @@
+import { Link, useRouteMatch } from "react-router-dom/cjs/react-router-dom.min"
+
 const CustomerOrders = () => {
+  const {path} = useRouteMatch()
   return (
     <div>
+      {/* Link below have to put to orderId */}
+      <Link to={`${path}/detail/${Math.random()}`}>
       <hr></hr>
       <div className="grid grid-cols-12 gap-x-4 lg:gap-x-8 py-4">
         <div className="col-span-3">
@@ -18,6 +23,7 @@ const CustomerOrders = () => {
           <span className="py-2 text-sm lg:text-base">฿550</span>
         </div>
       </div>
+      </Link>
     </div>
   );
 };

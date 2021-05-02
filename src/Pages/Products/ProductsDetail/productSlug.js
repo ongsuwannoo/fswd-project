@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import ProductCard from "../../../components/productCard/ProductCard";
 import Loading from '../../../components/Loading/Loading'
 import { PRODUCT_QUERY } from "../../../graphql/Product";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProductDetail(props) {
   const { productId } = useParams()
@@ -18,7 +19,7 @@ function ProductDetail(props) {
     getProduct()
   }, [getProduct]);
 
-  console.log(product.name);
+
   return (
     <div className="">
       {loading ? <Loading /> : ''}
@@ -46,7 +47,9 @@ function ProductDetail(props) {
               <p className="">arrow</p>
             </div>
             <img
-              src="https://via.placeholder.com/608x800"
+              src={product.image?.map((data,index)=>{
+                return console.log(data)
+              })}
               class="col-span-8"
               alt="showing"
             ></img>
@@ -57,11 +60,11 @@ function ProductDetail(props) {
         </div>
         <div className="col-span-6 px-4">
           <div>
-            <h1 className="uppercase font-bold text-4xl">g-shock</h1>
+            <h1 className="uppercase font-bold text-4xl">{product.name}</h1>
             <h3 className="py-4">
-              นาฬิกาข้อมือ รุ่น G-SHOCK GBD-H1000-1A4DR สีดำ
+              {product.description}
             </h3>
-            <h5 className="text-blue-600 text-2xl">฿550</h5>
+            <h5 className="text-blue-600 text-2xl">฿{product.price}</h5>
             <div className="grid grid-cols-12 py-8">
               <input
                 className="col-span-4 py-1 mx-2 text-center border border-black hover:border-2"
@@ -72,9 +75,14 @@ function ProductDetail(props) {
               <button className="col-span-4 py-1 mx-2 bg-white text-black border border-black">
                 cart
               </button>
-              <button className="col-span-4 py-1 mx-2 bg-black text-white border border-black">
-                ซื้อทันที
-              </button>
+              <label className="col-span-4 py-1 mx-2 bg-black text-white border border-black text-center">
+                <Link to={`/checkout/${productId}`} onClick={()=>{window.location.href=`/checkout/${productId}`}}>
+                  <button>
+                    ซื้อทันที
+                  </button>
+                </Link>
+              </label>
+              
             </div>
           </div>
         </div>
@@ -84,16 +92,7 @@ function ProductDetail(props) {
       <h2 className="pt-16">Details</h2>
       <hr></hr>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum is simply dummy text of the
-        printing and typesetting industry. Lorem Ipsum is simply dummy text of
-        the printing and typesetting industry. Lorem Ipsum is simply dummy text
-        of the printing and typesetting industry. Lorem Ipsum is simply dummy
-        text of the printing and typesetting industry. Lorem Ipsum is simply
-        dummy text of the printing and typesetting industry. Lorem Ipsum is
-        simply dummy text of the printing and typesetting industry.{" "}
+        {product.details}
       </p>
       {/* end of description here */}
       {/* recommended item here */}

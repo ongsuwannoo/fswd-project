@@ -1,9 +1,17 @@
 import mongoose from 'mongoose'
-import { composeWithMongoose } from 'graphql-compose-mongoose'
+import {
+  composeWithMongooseDiscriminators
+} from 'graphql-compose-mongoose'
 
 const { Schema } = mongoose
 
-const enumProductType = ["shirt", "pants", "skirt", "accessories"]
+const DKey = 'type'
+const enumProductType = {
+  FREE: 'PromotionFree',
+  SALE: 'PromotionSale',
+  PRODUCT: 'Product'
+}
+const enumProductCategory = ["shirt", "pants", "skirt", "accessories"]
 const enumProductColor = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"]
 
 const ProductSchema = new Schema({
@@ -15,10 +23,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
-  type: {
+  category: {
     type: String,
     required: true,
-    enum: enumProductType,
+    enum: enumProductCategory,
   },
   color: {
     type: String,
@@ -27,6 +35,7 @@ const ProductSchema = new Schema({
   },
   size: {
     type: String,
+    required: true,
   },
   tag: [
     { type: String }
@@ -35,24 +44,92 @@ const ProductSchema = new Schema({
     { type: String }
   ],
   price: {
-    type: Number
+    type: Number,
+    required: true,
   },
   count: {
-    type: Number
+    type: Number,
+    required: true,
   },
   active: {
-    type: Boolean
+    type: Boolean,
+    required: true,
+  },
+  type: {
+    type: String,
+    require: true,
+    enum: Object.keys(enumProductType),
+    index: true
   }
 })
 
-const baseOptions = {
+const PromotionSchema = new Schema({
+  banner: [
+    { type: String }
+  ],
+  start_date: {
+    type: Date,
+    required: true,
+  },
+  start_time: {
+    type: String,
+    required: true,
+  },
+  end_date: {
+    type: String,
+    required: true,
+  },
+  end_time: {
+    type: String,
+    required: true,
+  },
+  active: {
+    type: Boolean,
+    required: true,
+  },
+})
+
+const PromotionFreeSchema = new Schema({
+  promotion: { type: [PromotionSchema], require: true },
+  buy_get: {
+    type: Number,
+    default: 0,
+    required: true,
+  },
+  get_buy: {
+    type: Number,
+    default: 0,
+    required: true,
+  }
+})
+
+const PromotionSaleSchema = new Schema({
+  promotion: { type: [PromotionSchema], require: true },
+  persent: {
+    type: Number,
+    default: 0,
+    required: true,
+  }
+})
+
+const ProductSchemaTC = new Schema({})
+
+const discriminatorOptions = {
   inputType: {
     removeFields: ['timestamp'],
-  },
+  }
 }
 
-export const ProductModel = mongoose.model('Product', ProductSchema)
+ProductSchema.set('discriminatorKey', DKey)
 
-export const ProductTC = composeWithMongoose(ProductModel, baseOptions)
+export const ProductModel = mongoose.model('ProductPromotion', ProductSchema)
+export const PromotionFreeModel = ProductModel.discriminator(enumProductType.FREE, PromotionFreeSchema)
+export const PromotionSaleModel = ProductModel.discriminator(enumProductType.SALE, PromotionSaleSchema)
+export const ProductModelTC = ProductModel.discriminator(enumProductType.PRODUCT, ProductSchemaTC)
+
+export const ProductTCD = composeWithMongooseDiscriminators(ProductModel)
+export const PromotionFreeTC = ProductTCD.discriminator(PromotionFreeModel, { name: enumProductType.FREE, ...discriminatorOptions })
+export const PromotionSaleTC = ProductTCD.discriminator(PromotionSaleModel, { name: enumProductType.SALE, ...discriminatorOptions })
+export const ProductTC = ProductTCD.discriminator(ProductModelTC, { name: enumProductType.PRODUCT, ...discriminatorOptions })
 
 export default ProductModel

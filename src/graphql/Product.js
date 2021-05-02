@@ -48,3 +48,20 @@ query {
   }
 }
 `
+
+export const PRODUCT_QUERYS = gql`
+query ($productIds: [MongoID!]!) {
+  productByIds (_ids: $productIds) {
+    _id
+    name
+    description
+    color
+    size
+    tag
+    image
+    price
+    count
+    active
+  }
+}
+`

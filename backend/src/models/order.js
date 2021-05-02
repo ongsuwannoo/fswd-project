@@ -2,14 +2,16 @@ import mongoose from 'mongoose'
 import { composeWithMongoose } from 'graphql-compose-mongoose'
 
 const { Schema } = mongoose
-const enumOrderStatus = ["Order", "Shipping", "Delivered", "Refunded", "Canceled"]
+const enumOrderStatus = ["Order", "Shipped", "Delivered", "Refunded", "Canceled"]
 const OrderSchema = new Schema({
   order_id: {
     type: String,
   },
   customer_id: {
     type: String,
-    required: true
+  },
+  customer_name: {
+    type: String,
   },
   status: {
     type: String,

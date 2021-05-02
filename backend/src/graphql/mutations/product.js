@@ -1,4 +1,4 @@
-import { ProductTC, UserModel, PromotionSaleTC, PromotionFreeTC } from '../../models'
+import { ProductTCD, UserModel, PromotionSaleTC, PromotionFreeTC } from '../../models'
 import { schemaComposer } from 'graphql-compose'
 import { GraphQLUpload } from 'apollo-upload-server';
 import { UserInputError } from 'apollo-server-express'
@@ -48,10 +48,11 @@ async function check_permission({ next, req }) {
   return true
 }
 
-export const createProduct = ProductTC.getResolver('createOne').wrapResolve(next => async req => {
+export const createProduct = ProductTCD.getResolver('createOne').wrapResolve(next => async req => {
   await check_permission({ next, req })
   return next(req)
 })
+
 export const createPromotionFree = PromotionFreeTC.getResolver('createOne').wrapResolve(next => async req => {
   await check_permission({ next, req })
   return next(req)
@@ -62,11 +63,11 @@ export const createPromotionSale = PromotionSaleTC.getResolver('createOne').wrap
 })
 
 
-export const updateProductById = ProductTC.getResolver('updateById').wrapResolve(next => async req => {
+export const updateProductById = ProductTCD.getResolver('updateById').wrapResolve(next => async req => {
   const { _id } = req.context.user
   const user = await UserModel.findById(_id).exec()
   if (user.role != "ADMIN") throw new UserInputError(`User '${user.username}' Permission denied`);
   return next(req)
 })
 
-export const updateProductMany = ProductTC.getResolver('updateMany')
+export const updateProductMany = ProductTCD.getResolver('updateMany')

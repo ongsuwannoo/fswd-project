@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const CREATE_PROMOTION_MUTATION = gql`
-mutation ($record: CreateOnePromotionInput!) {
-  createPromotion (record: $record) {
+mutation ($record: CreateOnePromotionFreeInput!) {
+  createPromotionFree (record: $record) {
     recordId
   }
 }

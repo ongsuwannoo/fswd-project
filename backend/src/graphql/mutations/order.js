@@ -12,6 +12,7 @@ export const updateOrderById = OrderTC.getResolver('updateById').wrapResolve(nex
   const { _id } = req.context.user
   const status = args.record.status
   let product_data
+  console.log(status);
 
   if (status === 'Shipping') {
 
@@ -38,7 +39,7 @@ export const updateOrderById = OrderTC.getResolver('updateById').wrapResolve(nex
     const products = order.products
     await Promise.all(products.map(async (product)=>{
       product_data = await ProductModel.findById(product.product_id).exec()
-      if (product_data.count >= product.count){
+      if (product_data.count <= product.count){
         throw new UserInputError(`สินค้า ${product_data.name} ในระบบมีไม่พอ`);
       }
     }))
@@ -47,6 +48,4 @@ export const updateOrderById = OrderTC.getResolver('updateById').wrapResolve(nex
   return next(req)
 })
 
-async function handleReturn ({next, req}) {
-  
-}
+export const updateOrderMany = OrderTC.getResolver('updateMany')

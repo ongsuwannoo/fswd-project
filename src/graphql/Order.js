@@ -14,10 +14,14 @@ query ($orderId: MongoID!) {
     _id
     order_id
     customer_id
-    price
     status
+    products {
+      product_id
+      count
+    }
     date
     payment_method
+    customer_name
   }
 }
 `
@@ -36,11 +40,14 @@ query {
     _id
     order_id
     customer_id
-    price
     status
+    products {
+      product_id
+      count
+    }
     date
     payment_method
-    
+    customer_name
   }
 }
 `

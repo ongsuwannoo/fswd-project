@@ -41,6 +41,14 @@ const AdminOrder = () => {
     [getOrder],
   )
 
+  const sum = (obj) => {
+    var sum = 0;
+    for (var i = 0; i < obj.length; i++) {
+      sum += obj[i].count
+    }
+    return sum;
+  }
+  
   const orderBox = useMemo(
     () => {
       if (loading) {
@@ -57,13 +65,13 @@ const AdminOrder = () => {
                   {order.order_id}
                 </td>
                 <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  {"ongsuwannoo"}
+                  {order.customer_name}
                 </td>
                 <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                   {formatDate(order.date)}
                 </td>
                 <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                  {order.price}
+                  {sum(order.products)}
                 </td>
                 <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                   <span className="rounded bg-green-400 py-1 px-3 text-xs font-bold">{order.status}</span>
@@ -98,23 +106,23 @@ const AdminOrder = () => {
   return (
     <div>
       <div id="admin_dashboard" className="container px-16 mx-auto bg-blue-50">
-      <div className="grid grid-cols-12 gap-y-4">
+        <div className="grid grid-cols-12 gap-y-4">
           <AdminHeader username="New eng jaa" />
-        <table className="border-collapse col-span-12 rounded shadow-md">
-          <thead>
-            <tr>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Order ID</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Customer</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Order Data</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Price</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
-              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orderBox}
-          </tbody>
-        </table>
+          <table className="border-collapse col-span-12 rounded shadow-md">
+            <thead>
+              <tr>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Order ID</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Customer</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Order Data</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Count</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
+                <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orderBox}
+            </tbody>
+          </table>
         </div>
       </div>
       <Sidebar />

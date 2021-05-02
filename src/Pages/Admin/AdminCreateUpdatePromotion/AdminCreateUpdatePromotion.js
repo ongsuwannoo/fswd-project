@@ -69,7 +69,7 @@ const AdminPromotion = () => {
     })
   }
 
-  // setNewProduct from input, option, checkbox form
+  // setNewProduct from input, option, checkbox form 
   const handleInputChange = useCallback(
     (e) => {
       let { name, value } = e.target
@@ -81,6 +81,15 @@ const AdminPromotion = () => {
       setNewPromotion((prev) => ({ ...prev, [name]: value }))
     },
     [],
+  )
+
+  const handleInputChangeProduct = useCallback(
+    (e) => {
+      let { value } = e.target
+      // console.log(products[value] );
+      setNewPromotion((prev) => ({ ...prev, ...products[value] }))
+    },
+    [products],
   )
 
   // Submit useMutation createProduct -> backend
@@ -148,13 +157,13 @@ const AdminPromotion = () => {
 
           {/* PROMOTION */}
           <label>Product</label>
-          <select onChange={handleInputChange} value={newPromotion.product} name="product" id="product" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+          <select onChange={handleInputChangeProduct} value={newPromotion.product} name="product" id="product" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
             <option value="">-- Please select one --</option>
             {
               products
                 ?
                 products.map((value, i) => {
-                  return (<option key={i} value={value._id}>{value.name}</option>)
+                  return (<option key={i} value={i}>{value.name}</option>)
                 })
                 : <option value="">NO PRODUCT</option>
             }

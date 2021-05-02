@@ -42,7 +42,7 @@ const Register = () => {
               onChange={handleInputChange}
             ></input>
             <div className="col-span-2 mb-4 py-2 px-4 bg-white">
-              <span>Logo</span>
+              <i class="fas fa-user-tie"></i>
             </div>
             <p className="col-span-12" >นามสกุล</p>
             <input className="col-span-10 mb-4 py-2 px-4" type="text" placeholder="กรอกนามสกุล"
@@ -51,7 +51,7 @@ const Register = () => {
               onChange={handleInputChange}
             ></input>
             <div className="col-span-2 mb-4 py-2 px-4 bg-white">
-              <span>Logo</span>
+              <i class="fas fa-user-tie"></i>
             </div>
             <p className="col-span-12" > Username</p>
             <input className="col-span-10 mb-4 py-2 px-4" type="text" placeholder="กรอก Username"
@@ -60,7 +60,7 @@ const Register = () => {
               onChange={handleInputChange}
             ></input>
             <div className="col-span-2 mb-4 py-2 px-4 bg-white">
-              <span>Logo</span>
+              <i class="fas fa-user"></i>
             </div>
             <p className="col-span-12" > Password</p>
             <input className="col-span-10 mb-4 py-2 px-4" type="password" placeholder="กรอก Password"
@@ -69,9 +69,9 @@ const Register = () => {
               onChange={handleInputChange}
             ></input>
             <div className="col-span-2 mb-4 py-2 px-4 bg-white">
-              <span>Logo</span>
+              <i class="fas fa-key"></i>
             </div>
-            <button className="col-span-12 bg-black text-white py-2 my-4" type="submit">ลงทะเบียน</button>
+            <button className="col-span-12 bg-black text-white py-2 my-4 rounded" type="submit">ลงทะเบียน</button>
           </div>
         </form>
       </div>

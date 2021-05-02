@@ -40,7 +40,7 @@ const Login = () => {
             >
             </input>
             <div className="col-span-2 mb-4 py-2 px-4 bg-white">
-              <span>Logo</span>
+              <i class="fas fa-user"></i>
             </div>
             <p className="col-span-12" >รหัสผ่าน</p>
             <input className="col-span-10 mb-4 py-2 px-4" type="password" placeholder="กรุณากรอกรหัสผ่าน"
@@ -48,12 +48,12 @@ const Login = () => {
             >
             </input>
             <div className="col-span-2 mb-4 py-2 px-4 bg-white">
-              <span>Logo</span>
+              <i class="fas fa-key"></i>
             </div>
-            <button className="col-span-12 bg-black text-white py-2 my-4" type="submit">เข้าสู่ระบบ</button>
+            <button className="col-span-12 bg-black text-white py-2 my-4 rounded" type="submit">เข้าสู่ระบบ</button>
           </div>
           <div className="flex justify-center">
-            <p className="py-4">ยังไม่เคยลงทะเบียน? <Link to={'/register'}>ลงทะเบียน</Link></p>
+            <p className="py-4">ยังไม่เคยลงทะเบียน? <Link to={'/register'} className="hover:text-blue-600">ลงทะเบียน</Link></p>
           </div>
         </form>
       </div>

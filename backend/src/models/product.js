@@ -28,10 +28,10 @@ const ProductSchema = new Schema({
     required: true,
     enum: enumProductCategory,
   },
-  color: {
+  color: [{
     type: String,
     required: true,
-  },
+  }],
   size: [{
     type: String,
     required: true,

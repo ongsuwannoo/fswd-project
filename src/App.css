@@ -44,3 +44,12 @@ body > h1,h2,h3,h4,h5,h6,p,a,button,select,label,input,span{
   width: 100%;
   height: 100%;
 }
+.image_product{
+  width: 100%;
+  padding-top: 100%;
+  background: #fff;
+  background-image: var(--img);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

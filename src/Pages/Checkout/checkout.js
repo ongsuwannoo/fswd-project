@@ -95,7 +95,7 @@ function Checkout() {
                         <div></div>
                         <div></div>
                         <div className="flex justify-end">
-                            <label className="bg-black text-white w-full py-2 rounded mt-3 px-2 ">
+                            <label className="bg-black text-white w-full py-2 rounded mt-3 px-2 text-center">
                                 <Link to={`/payment/${productId}`}  onClick={()=>{window.location.href=`/payment/${productId}`}}>
                                     <button>ชำระเงิน</button>
                                 </Link>

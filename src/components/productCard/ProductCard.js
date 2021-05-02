@@ -7,7 +7,7 @@ function ProductCard(props) {
   }
   return (
     <div className={props.numSpan}>
-      <Link to={`/product/detail/${props.data?._id}`}>
+      <Link to={`/product/detail/${props.data?._id}`} onClick={()=>{window.location.href=`/product/detail/${props.data?._id}`}}>
       <img src={`https://picsum.photos/398/500/?${Math.random()}`} onError={onError} className="" alt="productDetail" width="398" height="500"></img>
       <h3 className="px-2 text-xl lg:text-2xl">{props.data?.name}</h3>
       <h4 className="px-2 text-opacity-70">{props.data?.description}</h4>

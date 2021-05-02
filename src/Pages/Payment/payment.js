@@ -60,7 +60,7 @@ function Payment() {
                             <label className="text-xl">Pay On Delivery</label>
                         </div>
                         <div className="flex justify-end w-11/12 h-20 p-5 bg-gray-200">
-                            <label className="bg-black text-white w-1/3 py-2 rounded px-2">
+                            <label className="bg-black text-white w-1/3 py-2 rounded px-2 text-center">
                             <Link to="/customer">
                                 <button className="">ชำระเงิน</button>
                             </Link>

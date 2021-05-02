@@ -54,7 +54,7 @@ function Home(){
       return(
       <div className="">
         {/* latest Promotion */}
-        <img src="https://picsum.photos/1800/500/?1" className="mt-16" alt="latest promo"></img>
+        <img src="https://www.linkpicture.com/q/banner_13.jpg" className="mt-16" alt="latest promo"></img>
         <div className="flex justify-center py-5">
           <h2 className="uppercase text-3xl">Promotions</h2>
         </div>

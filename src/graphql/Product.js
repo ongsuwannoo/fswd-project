@@ -13,7 +13,6 @@ query ($productId: MongoID!) {
   productById (_id: $productId) {
     name
     description
-    type
     color
     size
     tag
@@ -39,7 +38,6 @@ query {
     _id
     name
     description
-    type
     color
     size
     tag

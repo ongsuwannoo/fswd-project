@@ -249,14 +249,14 @@ const AdminProduct = () => {
 
                 {/* Test Save Product Log data newProduct */}
                 {/* <button type="button" onClick={() => console.log(newProduct)} className="bg-green-400 hover:bg-green-500 text-white font-semibold py-2 px-4 border border-green-500 hover:border-transparent rounded w-max">
-            Test Save Product
+                  Test Save Product
           </button> */}
               </form>
             </div>
           </div>
         </div>
       </div>
-      <Sidebar/>
+      <Sidebar />
     </div>
 
   )

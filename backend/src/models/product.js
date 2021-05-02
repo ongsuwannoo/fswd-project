@@ -31,12 +31,11 @@ const ProductSchema = new Schema({
   color: {
     type: String,
     required: true,
-    enum: enumProductColor,
   },
-  size: {
+  size: [{
     type: String,
     required: true,
-  },
+  }],
   tag: [
     { type: String }
   ],

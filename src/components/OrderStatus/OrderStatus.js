@@ -71,11 +71,11 @@ const OrderStatus = (props) => {
             <div className="col-span-2 lg:col-span-1 flex justify-center">
               <p className="text-xs text-center">ชำระเงินแล้ว</p>
             </div>
-            <div className="col-span-5"></div>
+            <div className="col-span-3 lg:col-span-5"></div>
             <div className="col-span-2 lg:col-span-1 flex justify-center">
               <p className="text-xs text-center">ที่ต้องจัดส่ง</p>
             </div>
-            <div className="col-span-4"></div>
+            <div className="col-span-3 lg:col-span-4"></div>
             <div className="col-span-2 lg:col-span-1 flex justify-center">
               <p className="text-xs text-center">ที่ต้องได้รับ</p>
             </div>

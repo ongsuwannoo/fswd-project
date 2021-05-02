@@ -3,7 +3,8 @@ import Sidebar from "../../../components/Sidebar/Sidebar"
 
 const AdminDashboard = () => {
 	return (
-		<div>
+		<div class="relative min-h-screen md:flex">
+			<Sidebar />
 			<div id="admin_dashboard" className="container px-16 mx-auto bg-blue-50">
 				<div className="grid grid-cols-12 gap-x-12">
 					<div id="" className="col-span-12 p-4 bg-white my-8 rounded shadow-md">
@@ -62,7 +63,7 @@ const AdminDashboard = () => {
 					</div>
 				</div>
 			</div>
-			<Sidebar />
+			
 
 		</div>
 	);

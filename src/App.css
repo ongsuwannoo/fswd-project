@@ -4,9 +4,15 @@ body > h1,h2,h3,h4,h5,h6,p,a,button,select,label,input,span {
   font-family: "Kanit", sans-serif !important;
 }
 
+<<<<<<< HEAD
 #admin_dashboard,
 #admin_product_table {
   width: calc(100% - 10vw);
+=======
+#admin_dashboard, #admin_product_table, #admin_promotion{
+  width: calc(100% - 200px) ; 
+  margin-left: 200px ;
+>>>>>>> main
   min-height: 100vh;
 }
 @media (max-width: 768px) {

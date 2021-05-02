@@ -40,6 +40,9 @@ const ProductSchema = new Schema({
   count: {
     type: Number
   },
+  detail: {
+    type: String
+  },
   active: {
     type: Boolean
   }

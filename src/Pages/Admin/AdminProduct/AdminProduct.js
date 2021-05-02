@@ -9,6 +9,8 @@ import CreateUpdateProduct from '../AdminCreateUpdateProduct/AdminCreateUpdatePr
 import { PRODUCT_QUERY_ALL } from '../../../graphql/Product'
 import { useLazyQuery } from '@apollo/client'
 import Loading from '../../../components/Loading/Loading'
+import Sidebar from "../../../components/Sidebar/Sidebar";
+import AdminHeader from "../../../components/AdminHeader/AdminHeader";
 
 const AdminProduct = () => {
   let { path } = useRouteMatch();
@@ -17,6 +19,7 @@ const AdminProduct = () => {
 
   useEffect(() => {
     if (data?.products) {
+      console.log(data?.products);
       setProducts(data?.products)
     }
   },
@@ -90,30 +93,59 @@ const AdminProduct = () => {
         )
       }
       return (
-        <tr><td><div className="col-span-2">ยังไม่มีสินค้าในระบบ</div></td></tr>
+        <tr><td colSpan="9">
+          <div className="flex justify-center">
+            <p className="py-4">มีบางอย่างผิดพลาดกรุณาลองใหม่
+              <Link className="ml-1 text-blue-700 underline"
+                to={'/admin/product'}
+                onClick={() => window.location.reload()}
+              >
+                ลองใหม่
+              </Link>
+            </p>
+          </div>
+        </td></tr>
       )
     },
     [loading, products, path],
   )
   return (
-    <table className="border-collapse w-full">
-      <thead>
-        <tr>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Product ID</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Image</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Name</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Tag</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Stock</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Sold</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Price</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
-          <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {productBox}
-      </tbody>
-    </table>
+    <div>
+      <div id="admin_product_table" className="container px-16 mx-auto bg-blue-100">
+        <div className="grid grid-cols-12 gap-y-4">
+          <AdminHeader username="New eng jaa"/>
+          <div className="col-span-2">
+            <select className="px-4 py-2">
+              <option>สินค้าทั้งหมด</option>
+            </select>
+          </div>
+          <div className="col-span-2">
+          <Link to={`${path}/create`}>
+          <button className="bg-blue-600 text-white px-4 py-2 rounded"><i class="fas fa-plus-circle"></i> Add product</button>
+          </Link>
+          </div>
+            <table  className="border-collapse w-full mx-auto col-span-12">
+          <thead>
+            <tr>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Product ID</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Image</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Name</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Tag</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Stock</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Sold</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Price</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
+              <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {productBox}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    <Sidebar></Sidebar>
+    </div>
   )
 }
 

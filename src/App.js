@@ -54,7 +54,7 @@ function App() {
                 <Route path="/customer">
                   <Customer />
                 </Route>
-                <Route path="/checkout/:productId">
+                <Route path="/checkout">
                   <Checkout />
                 </Route>
                 <Route path="/payment/:productId">

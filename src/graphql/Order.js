@@ -36,7 +36,25 @@ mutation ($orderId: MongoID!, $record: UpdateByIdOrderInput!) {
 
 export const ORDER_QUERY_ALL = gql`
 query {
-  orders {
+  orders(sort:_ID_DESC) {
+    _id
+    order_id
+    customer_id
+    status
+    products {
+      product_id
+      count
+    }
+    date
+    payment_method
+    customer_name
+  }
+}
+`
+
+export const ORDER_QUERY_FILTER_USERID = gql`
+query($userId: String) {
+  orders(sort:_ID_DESC, filter:{customer_id: $userId}) {
     _id
     order_id
     customer_id

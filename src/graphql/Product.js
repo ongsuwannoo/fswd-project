@@ -11,6 +11,7 @@ mutation ($record: CreateOneProductInput!) {
 export const PRODUCT_QUERY = gql`
 query ($productId: MongoID!) {
   productById (_id: $productId) {
+    _id
     name
     description
     color
